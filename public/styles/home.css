@@ -1,5 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
 .gif-container {
-  width: 98%;
+  width: 90%;
+  height: 400px;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: space-evenly;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.gif {
+  width: 300px;
   height: 300px;
-  border: 2px solid black;
 }
