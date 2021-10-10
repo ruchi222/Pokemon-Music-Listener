@@ -1,0 +1,23 @@
+{
+  "name": "Pokemon-Music-Listener",
+  "version": "1.0.0",
+  "description": "An app using jQuery, and a simple music listener.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aphy18/Pokemon-Music-Listener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aphy18/Pokemon-Music-Listener/issues"
+  },
+  "homepage": "https://github.com/aphy18/Pokemon-Music-Listener#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
