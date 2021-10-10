@@ -7,6 +7,7 @@ body {
   height: 150vh;
   border: 4px solid black;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .title {
@@ -19,6 +20,13 @@ body {
   width: 90%;
   align-self: flex-start;
   margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokeball {
+  width: 120px;
+  height: 120px;
 }
 
 .img {
@@ -27,7 +35,7 @@ body {
 }
 
 .question {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   width: 200px;
   height: 200px;
   align-self: flex-end;
@@ -36,27 +44,47 @@ body {
 }
 
 .gif-container {
-  width: 90%;
-  height: 640px;
-  /* border: 2px solid black; */
+  width: 100%;
+  height: 700px;
+  border: 2px solid black;
   display: flex;
   justify-content: center;
-  align-items: space-evenly;
+  align-items: space-between;
   flex-wrap: wrap;
   align-self: center;
+}
+
+.trainer-container-1,
+.trainer-container-2 {
+  /* border: 2px solid red; */
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5% 0;
+}
+
+.trainer-container-2 {
+  align-items: flex-end
 }
 
 .gif-1,
 .gif-2 {
   width: 300px;
   height: 300px;
-  transition: transform 0.4s ease;
+  border: 3px solid white;
+  transition: transform 0.4s ease, border 0.05s ease;
+  margin: 0;
 }
 
+
+
 .gif-1:hover {
-  transform: translateY(5%);
+  transform: translateY(2.2%);
+  border: 3px solid black
 }
 
 .gif-2:hover {
-  transform: translateY(-5%);
+  transform: translateY(-2.2%);
+  border: 3px solid black;
 }
