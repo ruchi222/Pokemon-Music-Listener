@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap');
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  height: 150vh;
+  width: 105%;
+  height: 200vh;
   /* border: 4px solid black; */
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Cabin';
+  font-weight: 600;
 }
 
 .title {
@@ -16,30 +20,23 @@ body {
 }
 
 .description-container {
-  /* border: 2px solid blue; */
-  width: 95%;
-  /* margin-left: 2%; */
+  border: 2px solid blue;
+  width: 90%;
+  align-self: flex-start;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-left: 1.5%;
+  margin-bottom: 15px;
 }
 
-.pokeball {
-  width: 120px;
-  height: 120px;
+.which-trainer {
+  font-size: 35px;
+  margin-right: 170px;
 }
 
-.img {
-  width: 200px;
-  height: 200px;
-}
-
-.question {
-  border: 2px solid black;
-  width: 200px;
-  height: 200px;
+.music {
   align-self: flex-end;
-  padding: 15px;
-  margin-right: 2%;
 }
 
 .gif-container {
