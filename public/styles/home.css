@@ -16,11 +16,11 @@ body {
 
 .title {
   align-self: center;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .description-container {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 90%;
   align-self: flex-start;
   display: flex;
@@ -56,11 +56,11 @@ body {
   width: 220px;
   height: 220px;
   border: 2px solid black;
-  transition: transform 0.4s ease, border 0.05s ease;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
   margin: 7px;
 }
 
 .gif:hover {
   transform: translateY(-4%);
-  /* border: 4px solid black; */
+  box-shadow: 5px 5x 5px black;
 }
