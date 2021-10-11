@@ -36,6 +36,7 @@ $(document).ready(function(){
     music.prop("currentTime",0);
     let imageURL = 'images/wp2403498.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
+    $("body").css("background-size", "130%");
     $(".which-trainer").html("<b>Trainer Red</b>");
   })
 
@@ -63,6 +64,7 @@ $(document).ready(function(){
     music.prop("currentTime",0);
     let imageURL = 'images/arcaninewallpaper.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
+    $("body").css("background-size", "auto");
     $(".which-trainer").html("<b>Trainer Blue</b>")
   })
 
@@ -89,6 +91,7 @@ $(document).ready(function(){
    }
     let imageURL = 'images/DRAGONITE.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
+    $("body").css("background-size", "auto");
     $(".which-trainer").html("<b>Trainer Lance</b>")
     $(".music").prop("currentTime",0);
   })
@@ -105,6 +108,7 @@ $(document).ready(function(){
       pauseAll(9)
       let imageURL = 'images/manthatmeta.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "auto");
     }
 
     if (musicChoice === "R") {
@@ -112,6 +116,7 @@ $(document).ready(function(){
       pauseAll(2)
       let imageURL = 'images/MEGAMETA.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "138%");
     }
     
     $(".which-trainer").html("<b>Trainer Steven</b>")
@@ -159,17 +164,18 @@ $(document).ready(function(){
    if (musicChoice === "O") {
      music[11].play();
      pauseAll(11);
-     let imageURL = 'images/GARCHOMP.jpeg'
+     let imageURL = 'images/grrrr.png'
      $("body").css("background-image", "url(" + imageURL + ")");
     //  $("body").css("background-repeat", "no-repeat");
-    //  $("body").css("background-size", "cover");
+     $("body").css("background-size", "130%");
    }
 
    if (musicChoice === "R") {
      music[4].play();
      pauseAll(4);
-     let imageURL = 'images/MEGAGAR.jpeg'
+     let imageURL = 'images/GARCHOMP.jpeg'
      $("body").css("background-image", "url(" + imageURL + ")");
+     $("body").css("background-size", "100%");
    }
     
     $(".which-trainer").html("<b>Trainer Cynthia</b>")
@@ -177,10 +183,31 @@ $(document).ready(function(){
    })
 
   $("#alder").click(function(){
+    let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+     musicChoice = prompt("O for original or R for remastered")
+   }
+
+   if (musicChoice === "Q") {
+     console.log("Quit")
+     return;
+   }
+   
+   if (musicChoice === "O") {
     music[6].play();
     pauseAll(6);
     let imageURL = 'images/VOLCARONA.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
+   }
+
+   if (musicChoice === "R") {
+    music[13].play();
+    pauseAll(13);
+    let imageURL = 'images/volcaronablack.jpeg'
+    $("body").css("background-image", "url(" + imageURL + ")");
+    $("body").css("background-size", "125%");
+   }
+ 
     $(".which-trainer").html("<b>Trainer Alder</b>")
     $(".music").prop("currentTime",0);
   })
@@ -188,7 +215,7 @@ $(document).ready(function(){
   $("#iris").click(function(){
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
     
-    while (musicChoice !== "O" && musicChoice !== "R" && music !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
       musicChoice = prompt("O for original or R for remastered")
     }
 
