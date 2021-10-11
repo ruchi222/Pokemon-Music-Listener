@@ -1,18 +1,42 @@
 $(document).ready(function(){
+  const music = $(".music");
+  function pauseAll(currentIndex) {
+    music.each(song => {
+      if (currentIndex !== song) {
+        console.log("MUSIC", music[song]);
+        music[song].pause();
+      } else {
+        console.log("No we are equal :(")
+      }
+    })
+  }
+  
   $("#red").click(function(){
+     console.log(music)
+     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
+     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+      musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === "Q") {
+      console.log("Quit")
+      return;
+    }
+    
+    if (musicChoice === "O") {
+      music[8].play();
+      pauseAll(8);
+    }
+
+    if (musicChoice === "R") {
+      music[0].play();
+      pauseAll(0);
+    }
+    
+    music.prop("currentTime",0);
     let imageURL = 'images/wp2403498.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
     $(".which-trainer").html("<b>Trainer Red</b>");
-    $(".music").prop("currentTime",0);
-    $(".music")[0].play();
-    $(".music")[1].pause();
-    $(".music")[2].pause();
-    $(".music")[3].pause();
-    $(".music")[4].pause();
-    $(".music")[5].pause();
-    $(".music")[6].pause();
-    $(".music")[7].pause();
-    console.log($(".music"))
   })
 
   $("#blue").click(function(){
@@ -46,11 +70,32 @@ $(document).ready(function(){
   })
 
   $("#steven").click(function(){
-    let imageURL = 'images/MEGAMETA.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
+    let musicChoice = prompt("Type which ever version you want: Original or Remastered")
+    
+    while (musicChoice !== "O" && musicChoice !== "R") {
+      alert("not a valid input")
+      musicChoice = prompt("So what you want")
+    }
+
+    console.log("OK YOURE OUT")
+
+    if (musicChoice === "O") {
+      let imageURL = 'images/manthatmeta.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $(".music")[9].play();
+      $(".music")[2].pause();
+    }
+
+    if (musicChoice === "R") {
+      let imageURL = 'images/MEGAMETA.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $(".music")[2].play();
+      $(".music")[9].pause();
+    }
+
+    
     $(".which-trainer").html("<b>Trainer Steven</b>")
     $(".music").prop("currentTime",0);
-    $(".music")[2].play()
     $(".music")[0].pause();
     $(".music")[1].pause();    
     $(".music")[3].pause();    
@@ -58,6 +103,7 @@ $(document).ready(function(){
     $(".music")[5].pause();    
     $(".music")[6].pause();
     $(".music")[7].pause();
+    $(".music")[8].pause();
 
   })
 
@@ -123,4 +169,7 @@ $(document).ready(function(){
     $(".music")[6].pause();
   })
 })
+
+
+
 
