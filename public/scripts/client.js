@@ -159,14 +159,19 @@ $(document).ready(function(){
    if (musicChoice === "O") {
      music[11].play();
      pauseAll(11);
+     let imageURL = 'images/GARCHOMP.jpeg'
+     $("body").css("background-image", "url(" + imageURL + ")");
+    //  $("body").css("background-repeat", "no-repeat");
+    //  $("body").css("background-size", "cover");
    }
 
    if (musicChoice === "R") {
      music[4].play();
      pauseAll(4);
+     let imageURL = 'images/MEGAGAR.jpeg'
+     $("body").css("background-image", "url(" + imageURL + ")");
    }
-    let imageURL = 'images/GARCHOMP.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
+    
     $(".which-trainer").html("<b>Trainer Cynthia</b>")
     $(".music").prop("currentTime",0);
    })
@@ -181,13 +186,27 @@ $(document).ready(function(){
   })
 
   $("#iris").click(function(){
-    music[7].play();
-    pauseAll(7);
-    let imageURL = 'images/HAXORUS.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
+    let musicChoice = prompt("Type which ever version you want: Original or Remastered")
+    
+    while (musicChoice !== "O" && musicChoice !== "R" && music !== "Q") {
+      musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === "O") {
+      music[7].play();
+      pauseAll(7);
+      let imageURL = 'images/HAXORUS.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+    }
+
+    if (musicChoice === "R") {
+      music[12].play();
+      pauseAll(12);
+      let imageURL = 'images/blackhaxx.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+    }
     $(".which-trainer").html("<b>Trainer Iris</b>")
     $(".music").prop("currentTime",0);
-  
   })
 })
 
