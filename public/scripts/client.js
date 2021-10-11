@@ -116,7 +116,7 @@ $(document).ready(function(){
       pauseAll(2)
       let imageURL = 'images/MEGAMETA.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "138%");
+      $("body").css("background-size", "135%");
     }
     
     $(".which-trainer").html("<b>Trainer Steven</b>")
@@ -196,16 +196,17 @@ $(document).ready(function(){
    if (musicChoice === "O") {
     music[6].play();
     pauseAll(6);
-    let imageURL = 'images/VOLCARONA.jpeg'
+    let imageURL = 'images/VOLCARONAGREY.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
+    $("body").css("background-size", "162%");
    }
 
    if (musicChoice === "R") {
     music[13].play();
     pauseAll(13);
-    let imageURL = 'images/volcaronablack.jpeg'
+    let imageURL = 'images/VOLCARONA.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "125%");
+    $("body").css("background-size", "auto");
    }
  
     $(".which-trainer").html("<b>Trainer Alder</b>")
@@ -224,6 +225,7 @@ $(document).ready(function(){
       pauseAll(7);
       let imageURL = 'images/HAXORUS.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "auto");
     }
 
     if (musicChoice === "R") {
@@ -231,6 +233,7 @@ $(document).ready(function(){
       pauseAll(12);
       let imageURL = 'images/blackhaxx.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "144%");
     }
     $(".which-trainer").html("<b>Trainer Iris</b>")
     $(".music").prop("currentTime",0);
