@@ -40,10 +40,6 @@ body {
   
 }
 
-.adjust-which-trainer {
-  width: 100%;
-}
-
 .sprite-container {
   border: 2px solid black;
   width: 230px;
@@ -55,7 +51,7 @@ body {
 
 .trainer-font,
 .pokemon-font {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 60px;
   height: 60px;
   margin: 0;
