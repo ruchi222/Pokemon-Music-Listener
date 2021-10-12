@@ -90,11 +90,12 @@ $(document).ready(function(){
      pauseAll(1);
    }
     let imageURL = 'images/DRAGONITE.jpeg'
-    let spriteURL = 'sprites/149_up.png';
+    let pokemonURL = 'pokemon-sprites/149_up.png';
+    let trainerURL = 'pokemon-sprites/Lance_OD.png'
     $("body").css("background-image", "url(" + imageURL + ")");
     $("body").css("background-size", "auto");
-    $(".which-trainer").html(`<b>Trainer Lance, Pokemon Dragonite</b> <img src=${spriteURL}>`)
     $(".music").prop("currentTime",0);
+    $(".which-trainer").html(`<b>Trainer Lance</b> <img src=${trainerURL}>, <b>Pokemon Dragonite</b> <img src=${pokemonURL}>`)
   })
 
   $("#steven").click(function(){
@@ -177,8 +178,11 @@ $(document).ready(function(){
      $("body").css("background-image", "url(" + imageURL + ")");
      $("body").css("background-size", "100%");
    }
-    
-    $(".which-trainer").html("<b>Trainer Cynthia</b>")
+   
+   let pokemonURL = 'pokemon-sprites/445s_0.png'
+   let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
+   $(".which-trainer").html(`<b>Trainer Cynthia</b> <img src=${trainerURL}>, <b>Pokemon Garchomp</b> <img src=${pokemonURL}>`)
+   $(".which-trainer").addClass("trainer-font")
     $(".music").prop("currentTime",0);
    })
 

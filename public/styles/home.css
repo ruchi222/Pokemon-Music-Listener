@@ -36,6 +36,10 @@ body {
   margin-right: 170px;
 }
 
+.trainer-font {
+  font-size: 60px;
+}
+
 .music {
   align-self: flex-end;
 }
