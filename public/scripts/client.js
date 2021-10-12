@@ -140,9 +140,9 @@ $(document).ready(function(){
     if (musicChoice === "R") {
       music[2].play()
       pauseAll(2)
-      const imageURL = 'images/shiny_mega_metagross__vector_wallpaper_by_javickvania_db6ecdu-fullview.jpg'
+      const imageURL = 'images/MEGAMETAGROSSNIGHT.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "145%");
+      $("body").css("background-size", "105%");
       const trainerURL = 'pokemon-sprites/Steven_OD.png'
       const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
       makeSprites(trainerURL, pokemonURL)
@@ -283,9 +283,9 @@ $(document).ready(function(){
     if (musicChoice === "R") {
       music[12].play();
       pauseAll(12);
-      let imageURL = 'images/blackhaxx.jpeg'
+      let imageURL = 'images/cosmichax.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "144%");
+      $("body").css("background-size", "100%");
       const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
       const pokemonURL = 'pokemon-sprites/612s_left.png'
       makeSprites(trainerURL, pokemonURL)
