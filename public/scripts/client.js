@@ -10,6 +10,14 @@ $(document).ready(function(){
       }
     })
   }
+
+  function makeSprites(trainerLink,pokeLink){
+    $("<div class='sprite-container'></div>").appendTo(".description-container");
+    const trainerSprite = $(`<img class="trainer-sprite" src=${trainerLink} alt="cynthia"/>`).appendTo(".sprite-container");
+    const pokemonSprite = $(`<img class="pokemon-sprite" src=${pokeLink} alt="garchomp">`).appendTo(".sprite-container");
+    trainerSprite.addClass("trainer-font");
+    pokemonSprite.addClass("pokemon-font");
+  }
   
   $("#red").click(function(){
      console.log(music)
@@ -153,6 +161,7 @@ $(document).ready(function(){
   })
 
   $("#cynthia").click(function(){
+     $(".sprite-container").remove() 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -178,14 +187,15 @@ $(document).ready(function(){
      $("body").css("background-image", "url(" + imageURL + ")");
      $("body").css("background-size", "100%");
    }
-   
+   $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
    let pokemonURL = 'pokemon-sprites/445s_0.png'
    let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
-   $(".which-trainer").html(`<b>Trainer Cynthia</b> <img src=${trainerURL}>, <b>Pokemon Garchomp</b> <img src=${pokemonURL}>`)
-   $(".which-trainer").addClass("trainer-font")
-    $(".music").prop("currentTime",0);
+    makeSprites(pokemonURL,trainerURL)
+   $(".music").prop("currentTime",0);
    })
+  
 
+  
   $("#alder").click(function(){
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
