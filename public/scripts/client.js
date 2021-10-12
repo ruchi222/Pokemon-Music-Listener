@@ -119,6 +119,7 @@ $(document).ready(function(){
   })
 
   $("#steven").click(function(){
+    $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
     
     while (musicChoice !== "O" && musicChoice !== "R" && music !== "Q") {
@@ -128,17 +129,23 @@ $(document).ready(function(){
     if (musicChoice === "O") {
       music[9].play()
       pauseAll(9)
-      let imageURL = 'images/manthatmeta.jpeg'
+      const imageURL = 'images/manthatmeta.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "auto");
+      const trainerURL = 'pokemon-sprites/STEVEN_OD.png'
+      const pokemonURL = 'pokemon-sprites/376_0.png'
+      makeSprites(trainerURL, pokemonURL)
     }
 
     if (musicChoice === "R") {
       music[2].play()
       pauseAll(2)
-      let imageURL = 'images/MEGAMETA.jpeg'
+      const imageURL = 'images/shiny_mega_metagross__vector_wallpaper_by_javickvania_db6ecdu-fullview.jpg'
       $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "135%");
+      $("body").css("background-size", "145%");
+      const trainerURL = 'pokemon-sprites/Steven_OD.png'
+      const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
+      makeSprites(trainerURL, pokemonURL)
     }
     
     $(".which-trainer").html("<b>Trainer Steven</b>")
@@ -165,6 +172,7 @@ $(document).ready(function(){
      const pokemonURL = 'pokemon-sprites/350.png'
      makeSprites(trainerURL, pokemonURL)
      $("body").css("background-image", "url(" + imageURL + ")");
+     $("body").css("background-size", "110%");
    }
 
    if (musicChoice === "R") {
@@ -219,6 +227,7 @@ $(document).ready(function(){
 
   
   $("#alder").click(function(){
+    $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -232,20 +241,23 @@ $(document).ready(function(){
    if (musicChoice === "O") {
     music[6].play();
     pauseAll(6);
-    let imageURL = 'images/VOLCARONAGREY.jpeg'
+    let imageURL = 'images/VOLCARONA.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "162%");
+    $("body").css("background-size", "auto");
    }
 
    if (musicChoice === "R") {
     music[13].play();
     pauseAll(13);
-    let imageURL = 'images/VOLCARONA.jpeg'
+    let imageURL = 'images/todxpr4sygj61.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "auto");
+    $("body").css("background-size", "100%");
    }
  
-    $(".which-trainer").html("<b>Trainer Alder</b>")
+    $(".which-trainer").text("Trainer Alder, Pokemon Volcarona")
+    const trainerURL = 'pokemon-sprites/ALDER_OD.png'
+    const pokemonURL = 'pokemon-sprites/637_down.png'
+    makeSprites(trainerURL, pokemonURL)
     $(".music").prop("currentTime",0);
   })
 
