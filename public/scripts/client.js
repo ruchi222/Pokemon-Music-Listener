@@ -90,9 +90,10 @@ $(document).ready(function(){
      pauseAll(1);
    }
     let imageURL = 'images/DRAGONITE.jpeg'
+    let spriteURL = 'sprites/149_up.png';
     $("body").css("background-image", "url(" + imageURL + ")");
     $("body").css("background-size", "auto");
-    $(".which-trainer").html("<b>Trainer Lance</b>")
+    $(".which-trainer").html(`<b>Trainer Lance, Pokemon Dragonite</b> <img src=${spriteURL}>`)
     $(".music").prop("currentTime",0);
   })
 
@@ -166,7 +167,6 @@ $(document).ready(function(){
      pauseAll(11);
      let imageURL = 'images/grrrr.png'
      $("body").css("background-image", "url(" + imageURL + ")");
-    //  $("body").css("background-repeat", "no-repeat");
      $("body").css("background-size", "130%");
    }
 
