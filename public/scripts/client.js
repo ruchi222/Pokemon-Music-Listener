@@ -12,7 +12,8 @@ $(document).ready(function(){
   }
 
   function makeSprites(trainerLink,pokeLink){
-    $("<div class='sprite-container'></div>").appendTo(".description-container");
+    const spriteContainer = $("<div></div>").appendTo(".description-container");
+    spriteContainer.addClass("sprite-container");
     const trainerSprite = $(`<img class="trainer-sprite" src=${trainerLink} alt="cynthia"/>`).appendTo(".sprite-container");
     const pokemonSprite = $(`<img class="pokemon-sprite" src=${pokeLink} alt="garchomp">`).appendTo(".sprite-container");
     trainerSprite.addClass("trainer-font");
@@ -122,8 +123,16 @@ $(document).ready(function(){
     $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
     
-    while (musicChoice !== "O" && musicChoice !== "R" && music !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
       musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === "Q") {
+      $(".which-trainer").text(`Trainer ???, Pokemon ???`);
+      // $(".sprite-container").remove
+      $(".which-trainer").addClass("adjust-which-trainer");
+      $("body").css("background-image", "none")
+      music[9].pause();
     }
 
     if (musicChoice === "O") {
@@ -307,9 +316,9 @@ $(document).ready(function(){
     if (musicChoice === "O") {
       music[14].play();
       pauseAll(14);
-      let imageURL = 'images/ZekResh.png'
+      let imageURL = 'images/halfZR.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "100%");
+      $("body").css("background-size", "110%");
       // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
       // const pokemonURL = 'pokemon-sprites/612_left.png'
       // makeSprites(trainerURL, pokemonURL)
