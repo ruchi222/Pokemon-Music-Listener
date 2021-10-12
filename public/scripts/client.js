@@ -1,9 +1,11 @@
 $(document).ready(function(){
   const music = $(".music");
+  const gif = $(".gif");
+
   function pauseAll(currentIndex) {
     music.each(song => {
       if (currentIndex !== song) {
-        console.log("MUSIC", music[song]);
+        // console.log("MUSIC", music[song]);
         music[song].pause();
       } else {
         console.log("No we are equal :(")
@@ -12,6 +14,8 @@ $(document).ready(function(){
   }
 
   function makeSprites(trainerLink,pokeLink){
+    $(".title").html("");
+    $(".description-list").html("");
     const spriteContainer = $("<div></div>").appendTo(".description-container");
     spriteContainer.addClass("sprite-container");
     const trainerSprite = $(`<img class="trainer-sprite" src=${trainerLink} alt="cynthia"/>`).appendTo(".sprite-container");
@@ -21,12 +25,27 @@ $(document).ready(function(){
   }
 
   function removeStyles(songOne, songTwo) {
+    $(".title").html("Welcome to Pokemon Music Listener");
+    $(".description-list").html("<li>Listen to Pokemon Music</li><li>Taken Throughout Pokemon History</li><li>Rock Out</li>")
     $(".which-trainer").text(`Trainer ???, Pokemon ???`);
-    $("body").css("background-image", "none")
+    $("body").css("background-image", "none");
     $(".sprite-container").remove();
     songOne.pause();
     songTwo.pause();
   }
+
+  function gifDisappear(index) {
+    gif.each(g => {
+      if (index !== g) {
+        console.log("Invisible Gif -->", gif[g])
+        gif[g].remove();
+      } else {
+        console.log("Worked")
+      }
+    })
+  }
+
+
   
   $("#red").click(function(){
     $(".sprite-container").remove();
@@ -173,6 +192,7 @@ $(document).ready(function(){
 
    if (musicChoice === "Q") {
     removeStyles(music[9], music[5])
+   
    } else {
     if (musicChoice === "O") {
       music[9].play();
@@ -183,6 +203,7 @@ $(document).ready(function(){
       makeSprites(trainerURL, pokemonURL)
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "110%");
+      $(".music").prop("currentTime",0);
     }
  
     if (musicChoice === "R") {
@@ -193,46 +214,45 @@ $(document).ready(function(){
       const pokemonURL = 'pokemon-sprites/350.png'
       makeSprites(trainerURL, pokemonURL)
       $("body").css("background-image", "url(" + imageURL + ")");
+      $(".music").prop("currentTime",0);
     }
-    
-     
-     $(".which-trainer").text("Trainer Wallace, Pokemon Milotic")
-     $(".music").prop("currentTime",0);
-   }
+    gifDisappear(4);
+    $(".which-trainer").text("Trainer Wallace, Pokemon Milotic")
+    }
   })
 
   $("#cynthia").click(function(){
-     $(".sprite-container").remove() 
+     $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
    }
 
-   if (musicChoice === "Q") {
+    if (musicChoice === "Q") {
     removeStyles(music[11], music[4])
+    } else {
+     if (musicChoice === "O") {
+       music[11].play();
+       pauseAll(11);
+       let imageURL = 'images/grrrr.png'
+       $("body").css("background-image", "url(" + imageURL + ")");
+       $("body").css("background-size", "130%");
+     }
+  
+     if (musicChoice === "R") {
+       music[4].play();
+       pauseAll(4);
+       let imageURL = 'images/GARCHOMP.jpeg'
+       $("body").css("background-image", "url(" + imageURL + ")");
+       $("body").css("background-size", "100%");
+     }
+     $(".music").prop("currentTime",0);
+     $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
+     let pokemonURL = 'pokemon-sprites/445s_0.png'
+     let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
+      makeSprites(trainerURL, pokemonURL)
    }
-   
-   if (musicChoice === "O") {
-     music[11].play();
-     pauseAll(11);
-     let imageURL = 'images/grrrr.png'
-     $("body").css("background-image", "url(" + imageURL + ")");
-     $("body").css("background-size", "130%");
-   }
-
-   if (musicChoice === "R") {
-     music[4].play();
-     pauseAll(4);
-     let imageURL = 'images/GARCHOMP.jpeg'
-     $("body").css("background-image", "url(" + imageURL + ")");
-     $("body").css("background-size", "100%");
-   }
-   $(".music").prop("currentTime",0);
-   $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
-   let pokemonURL = 'pokemon-sprites/445s_0.png'
-   let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
-    makeSprites(trainerURL, pokemonURL)
-   })
+ })
   
 
   
@@ -245,29 +265,29 @@ $(document).ready(function(){
 
    if (musicChoice === "Q") {
     removeStyles(music[6], music[13])
-   }
+   } else {
+     if (musicChoice === "O") {
+      music[6].play();
+      pauseAll(6);
+      let imageURL = 'images/VOLCARONA.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "auto");
+     }
+  
+     if (musicChoice === "R") {
+      music[13].play();
+      pauseAll(13);
+      let imageURL = 'images/todxpr4sygj61.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "103%");
+     }
    
-   if (musicChoice === "O") {
-    music[6].play();
-    pauseAll(6);
-    let imageURL = 'images/VOLCARONA.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "auto");
-   }
-
-   if (musicChoice === "R") {
-    music[13].play();
-    pauseAll(13);
-    let imageURL = 'images/todxpr4sygj61.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "103%");
-   }
- 
-    $(".which-trainer").text("Trainer Alder, Pokemon Volcarona")
-    const trainerURL = 'pokemon-sprites/ALDER_OD.png'
-    const pokemonURL = 'pokemon-sprites/637_down.png'
-    makeSprites(trainerURL, pokemonURL)
-    $(".music").prop("currentTime",0);
+      $(".which-trainer").text("Trainer Alder, Pokemon Volcarona")
+      const trainerURL = 'pokemon-sprites/ALDER_OD.png'
+      const pokemonURL = 'pokemon-sprites/637_down.png'
+      makeSprites(trainerURL, pokemonURL)
+      $(".music").prop("currentTime",0); 
+    }
   })
 
   $("#iris").click(function(){
@@ -280,33 +300,33 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
       removeStyles(music[7], music[12])
-     }
-
-    if (musicChoice === "O") {
-      music[7].play();
-      pauseAll(7);
-      let imageURL = 'images/HAXORUS.jpeg'
-      $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "auto");
-      const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-      const pokemonURL = 'pokemon-sprites/612_left.png'
-      makeSprites(trainerURL, pokemonURL)
-    }
-
-    if (musicChoice === "R") {
-      music[12].play();
-      pauseAll(12);
-      let imageURL = 'images/haxorusPOWER.jpeg'
-      $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "100%");
-      const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-      const pokemonURL = 'pokemon-sprites/612_left.png'
-      makeSprites(trainerURL, pokemonURL)
-    }
+     } else {
+       if (musicChoice === "O") {
+         music[7].play();
+         pauseAll(7);
+         let imageURL = 'images/HAXORUS.jpeg'
+         $("body").css("background-image", "url(" + imageURL + ")");
+         $("body").css("background-size", "auto");
+         const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+         const pokemonURL = 'pokemon-sprites/612_left.png'
+         makeSprites(trainerURL, pokemonURL)
+       }
    
-    $(".which-trainer").text("Trainer Iris, Pokemon Haxorus")
-    $(".music").prop("currentTime",0);
-  })
+       if (musicChoice === "R") {
+         music[12].play();
+         pauseAll(12);
+         let imageURL = 'images/haxorusPOWER.jpeg'
+         $("body").css("background-image", "url(" + imageURL + ")");
+         $("body").css("background-size", "100%");
+         const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+         const pokemonURL = 'pokemon-sprites/612_left.png'
+         makeSprites(trainerURL, pokemonURL)
+       }
+      
+       $(".which-trainer").text("Trainer Iris, Pokemon Haxorus")
+       $(".music").prop("currentTime",0);
+     }
+   })
 
   $("#n").click(function(){
     $(".sprite-container").remove();
@@ -318,33 +338,34 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
       removeStyles(music[14], music[15])
-     }
-
-    if (musicChoice === "O") {
-      music[14].play();
-      pauseAll(14);
-      let imageURL = 'images/halfZR.jpeg'
-      $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "110%");
-      // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-      // const pokemonURL = 'pokemon-sprites/612_left.png'
-      // makeSprites(trainerURL, pokemonURL)
-    }
-
-    if (musicChoice === "R") {
-      music[15].play();
-      pauseAll(15);
-      let imageURL = 'images/NPower.jpeg'
-      $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "155.5%");
-      // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-      // const pokemonURL = 'pokemon-sprites/612_left.png'
-      // makeSprites(trainerURL, pokemonURL)
-    }
+     } else {
+       if (musicChoice === "O") {
+         music[14].play();
+         pauseAll(14);
+         let imageURL = 'images/halfZR.jpeg'
+         $("body").css("background-image", "url(" + imageURL + ")");
+         $("body").css("background-size", "110%");
+         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+         // const pokemonURL = 'pokemon-sprites/612_left.png'
+         // makeSprites(trainerURL, pokemonURL)
+       }
    
-    $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram")
-    $(".music").prop("currentTime",0);
-  })
+       if (musicChoice === "R") {
+         music[15].play();
+         pauseAll(15);
+         let imageURL = 'images/NPower.jpeg'
+         $("body").css("background-image", "url(" + imageURL + ")");
+         $("body").css("background-size", "155.5%");
+         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+         // const pokemonURL = 'pokemon-sprites/612_left.png'
+         // makeSprites(trainerURL, pokemonURL)
+       }
+      
+       $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram")
+       $(".music").prop("currentTime",0);
+     }
+   })
+
 })
 
 
