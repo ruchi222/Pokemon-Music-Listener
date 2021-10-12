@@ -20,6 +20,7 @@ $(document).ready(function(){
   }
   
   $("#red").click(function(){
+    $(".sprite-container").remove();
      console.log(music)
      let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
      while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
@@ -34,21 +35,28 @@ $(document).ready(function(){
     if (musicChoice === "O") {
       music[8].play();
       pauseAll(8);
+      const imageURL = 'images/pokemon-pokemon-red-and-blue-pikachu-wallpaper-preview.jpg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "120%");
     }
 
     if (musicChoice === "R") {
       music[0].play();
       pauseAll(0);
+      const imageURL = 'images/wp2403498.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "130%");
     }
     
     music.prop("currentTime",0);
-    let imageURL = 'images/wp2403498.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "130%");
-    $(".which-trainer").html("<b>Trainer Red</b>");
+    $(".which-trainer").text("Trainer Red, Pokemon Pikachu");
+    const trainerURL = 'pokemon-sprites/Red_OD.png'
+    const pokemonURL = 'pokemon-sprites/025_right.png'
+    makeSprites(trainerURL, pokemonURL)
   })
 
   $("#blue").click(function(){
+    $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -73,11 +81,14 @@ $(document).ready(function(){
     let imageURL = 'images/arcaninewallpaper.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
     $("body").css("background-size", "auto");
-    $(".which-trainer").html("<b>Trainer Blue</b>")
+    $(".which-trainer").text("Trainer Blue, Pokemon Arcanine")
+    const trainerURL = 'pokemon-sprites/Blue_OD.png'
+    const pokemonURL = 'pokemon-sprites/059_left.png'
+    makeSprites(trainerURL, pokemonURL)
   })
 
   $("#lance").click(function(){
-
+    $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -103,7 +114,8 @@ $(document).ready(function(){
     $("body").css("background-image", "url(" + imageURL + ")");
     $("body").css("background-size", "auto");
     $(".music").prop("currentTime",0);
-    $(".which-trainer").html(`<b>Trainer Lance</b> <img src=${trainerURL}>, <b>Pokemon Dragonite</b> <img src=${pokemonURL}>`)
+    $(".which-trainer").text(`Trainer Lance, Pokemon Dragonite`)
+     makeSprites(trainerURL,pokemonURL)
   })
 
   $("#steven").click(function(){
@@ -134,7 +146,7 @@ $(document).ready(function(){
   })
 
   $("#wallace").click(function(){
-
+    $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -148,15 +160,25 @@ $(document).ready(function(){
    if (musicChoice === "O") {
      music[9].play();
      pauseAll(9);
+     const imageURL = 'images/MILOTIC.jpeg'
+     const trainerURL = 'pokemon-sprites/Wallace_OD.png'
+     const pokemonURL = 'pokemon-sprites/350.png'
+     makeSprites(trainerURL, pokemonURL)
+     $("body").css("background-image", "url(" + imageURL + ")");
    }
 
    if (musicChoice === "R") {
-     music[2].play();
-     pauseAll(2);
+     music[5].play();
+     pauseAll(5);
+     let imageURL = 'images/MILOHD.jpeg'
+     const trainerURL = 'pokemon-sprites/Wallace_OD.png'
+     const pokemonURL = 'pokemon-sprites/350.png'
+     makeSprites(trainerURL, pokemonURL)
+     $("body").css("background-image", "url(" + imageURL + ")");
    }
-   let imageURL = 'images/MILOTIC.jpeg'
-    $("body").css("background-image", "url(" + imageURL + ")");
-    $(".which-trainer").html("<b>Trainer Wallace</b>")
+   
+    
+    $(".which-trainer").text("Trainer Wallace, Pokemon Milotic")
     $(".music").prop("currentTime",0);
   })
 
@@ -187,11 +209,11 @@ $(document).ready(function(){
      $("body").css("background-image", "url(" + imageURL + ")");
      $("body").css("background-size", "100%");
    }
+   $(".music").prop("currentTime",0);
    $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
    let pokemonURL = 'pokemon-sprites/445s_0.png'
    let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
-    makeSprites(pokemonURL,trainerURL)
-   $(".music").prop("currentTime",0);
+    makeSprites(trainerURL, pokemonURL)
    })
   
 
@@ -228,6 +250,7 @@ $(document).ready(function(){
   })
 
   $("#iris").click(function(){
+    $(".sprite-container").remove();
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
     
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
@@ -240,6 +263,9 @@ $(document).ready(function(){
       let imageURL = 'images/HAXORUS.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "auto");
+      const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+      const pokemonURL = 'pokemon-sprites/612_left.png'
+      makeSprites(trainerURL, pokemonURL)
     }
 
     if (musicChoice === "R") {
@@ -248,8 +274,11 @@ $(document).ready(function(){
       let imageURL = 'images/blackhaxx.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "144%");
+      const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+      const pokemonURL = 'pokemon-sprites/612s_left.png'
+      makeSprites(trainerURL, pokemonURL)
     }
-    $(".which-trainer").html("<b>Trainer Iris</b>")
+    $(".which-trainer").text("Trainer Iris, Pokemon Haxorus")
     $(".music").prop("currentTime",0);
   })
 })
