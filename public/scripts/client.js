@@ -135,6 +135,7 @@ $(document).ready(function(){
       const trainerURL = 'pokemon-sprites/STEVEN_OD.png'
       const pokemonURL = 'pokemon-sprites/376_0.png'
       makeSprites(trainerURL, pokemonURL)
+      $(".which-trainer").text("Trainer Steven, Pokemon Metagross")
     }
 
     if (musicChoice === "R") {
@@ -146,9 +147,9 @@ $(document).ready(function(){
       const trainerURL = 'pokemon-sprites/Steven_OD.png'
       const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
       makeSprites(trainerURL, pokemonURL)
+      $(".which-trainer").text("Trainer Steven, Pokemon Mega Metagross")
     }
     
-    $(".which-trainer").html("<b>Trainer Steven</b>")
     $(".music").prop("currentTime",0);
   })
 
@@ -251,7 +252,7 @@ $(document).ready(function(){
     pauseAll(13);
     let imageURL = 'images/todxpr4sygj61.jpeg'
     $("body").css("background-image", "url(" + imageURL + ")");
-    $("body").css("background-size", "100%");
+    $("body").css("background-size", "103%");
    }
  
     $(".which-trainer").text("Trainer Alder, Pokemon Volcarona")
@@ -283,14 +284,49 @@ $(document).ready(function(){
     if (musicChoice === "R") {
       music[12].play();
       pauseAll(12);
-      let imageURL = 'images/cosmichax.jpeg'
+      let imageURL = 'images/haxorusPOWER.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
       const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-      const pokemonURL = 'pokemon-sprites/612s_left.png'
+      const pokemonURL = 'pokemon-sprites/612_left.png'
       makeSprites(trainerURL, pokemonURL)
     }
+   
     $(".which-trainer").text("Trainer Iris, Pokemon Haxorus")
+    $(".music").prop("currentTime",0);
+  })
+
+  $("#n").click(function(){
+    $(".sprite-container").remove();
+    let musicChoice = prompt("Type which ever version you want: Original or Remastered")
+    
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+      musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === "O") {
+      music[14].play();
+      pauseAll(14);
+      let imageURL = 'images/ZekResh.png'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "100%");
+      // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+      // const pokemonURL = 'pokemon-sprites/612_left.png'
+      // makeSprites(trainerURL, pokemonURL)
+    }
+
+    if (musicChoice === "R") {
+      music[15].play();
+      pauseAll(15);
+      let imageURL = 'images/NPower.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "155.5%");
+      // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+      // const pokemonURL = 'pokemon-sprites/612_left.png'
+      // makeSprites(trainerURL, pokemonURL)
+    }
+   
+    $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram")
     $(".music").prop("currentTime",0);
   })
 })
