@@ -383,7 +383,7 @@ $(document).ready(function(){
          pauseAll(15);
          let imageURL = 'images/NPower.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "155.5%");
+         $("body").css("background-size", "110%");
          // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          // const pokemonURL = 'pokemon-sprites/612_left.png'
          // makeSprites(trainerURL, pokemonURL)
