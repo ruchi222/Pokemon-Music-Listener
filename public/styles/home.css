@@ -7,7 +7,7 @@ body {
   align-items: center;
   width: 100%;
   height: 120vh;
-  /* border: 4px solid black; */
+  border: 4px solid black;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Cabin';
@@ -16,32 +16,30 @@ body {
 
 .title {
   align-self: center;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   
 }
 
 .description-container {
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
   width: 100%;
-  align-self: flex-start;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 1.5%;
   margin-bottom: 15px;
 }
 
 .which-trainer {
   font-size: 35px;
   width: 100%;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   display: flex;
   justify-content: flex-end;
   
 }
 
 .sprite-container {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   width: 230px;
   height: 100%;
   display: flex;
@@ -55,6 +53,7 @@ body {
   width: 60px;
   height: 60px;
   margin: 0;
+  
 }
 
 .music {
@@ -62,15 +61,15 @@ body {
 }
 
 .gif-container {
-  width: 40%;
+  width: 90%;
   height: 1200px;
   border: 4px solid black;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  align-self: flex-start;
-  margin-left: 1.5%;
+  
+  /* margin-left: 1.5%; */
 }
 
 

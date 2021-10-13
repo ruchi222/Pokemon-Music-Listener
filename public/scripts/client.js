@@ -37,10 +37,22 @@ $(document).ready(function(){
   function gifDisappear(index) {
     gif.each(g => {
       if (index !== g) {
+        const currentGif = gif[g];
         console.log("Invisible Gif -->", gif[g])
-        gif[g].remove();
+        $(currentGif).css("opacity", "0");
+        $(currentGif).css("pointer-events", "none");
       } else {
         console.log("Worked")
+      }
+    })
+  }
+
+  function gifRestore(index) {
+    gif.each(g => {
+      if (index !== g) {
+        const currentGif = gif[g];
+        $(currentGif).css("opacity", "1");
+        $(currentGif).css("pointer-events", "all");
       }
     })
   }
@@ -57,6 +69,7 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
       removeStyles(music[8], music[0])
+      gifRestore(0)
 
     } else {
       if (musicChoice === "O") {
@@ -80,6 +93,7 @@ $(document).ready(function(){
       const trainerURL = 'pokemon-sprites/Red_OD.png'
       const pokemonURL = 'pokemon-sprites/025_right.png'
       makeSprites(trainerURL, pokemonURL)
+      gifDisappear(0)
     }
   })
 
@@ -92,6 +106,7 @@ $(document).ready(function(){
 
    if (musicChoice === "Q") {
     removeStyles(music[10], music[3])
+    gifRestore(1)
    } else {
     if (musicChoice === "O") {
       music[10].play();
@@ -111,6 +126,7 @@ $(document).ready(function(){
      const trainerURL = 'pokemon-sprites/Blue_OD.png'
      const pokemonURL = 'pokemon-sprites/059_left.png'
      makeSprites(trainerURL, pokemonURL)
+     gifDisappear(1)
    }
   })
 
@@ -123,6 +139,7 @@ $(document).ready(function(){
 
    if (musicChoice === "Q") {
     removeStyles(music[8], music[1])
+    gifRestore(2)
    } else {
     if (musicChoice === "O") {
       music[8].play();
@@ -141,6 +158,7 @@ $(document).ready(function(){
      $(".music").prop("currentTime",0);
      $(".which-trainer").text(`Trainer Lance, Pokemon Dragonite`)
       makeSprites(trainerURL,pokemonURL)
+      gifDisappear(2)
    }
   })
 
@@ -154,33 +172,35 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
       removeStyles(music[9], music[2])
+      gifRestore(3)
+    } else {
+      if (musicChoice === "O") {
+        music[9].play()
+        pauseAll(9)
+        const imageURL = 'images/manthatmeta.jpeg'
+        $("body").css("background-image", "url(" + imageURL + ")");
+        $("body").css("background-size", "auto");
+        const trainerURL = 'pokemon-sprites/STEVEN_OD.png'
+        const pokemonURL = 'pokemon-sprites/376_0.png'
+        makeSprites(trainerURL, pokemonURL)
+        $(".which-trainer").text("Trainer Steven, Pokemon Metagross")
+      }
+  
+      if (musicChoice === "R") {
+        music[2].play()
+        pauseAll(2)
+        const imageURL = 'images/MEGAMETAGROSSNIGHT.jpeg'
+        $("body").css("background-image", "url(" + imageURL + ")");
+        $("body").css("background-size", "105%");
+        const trainerURL = 'pokemon-sprites/Steven_OD.png'
+        const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
+        makeSprites(trainerURL, pokemonURL)
+        $(".which-trainer").text("Trainer Steven, Pokemon Mega Metagross")
+      }
+      
+      $(".music").prop("currentTime",0);
+      gifDisappear(3)
     }
-
-    if (musicChoice === "O") {
-      music[9].play()
-      pauseAll(9)
-      const imageURL = 'images/manthatmeta.jpeg'
-      $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "auto");
-      const trainerURL = 'pokemon-sprites/STEVEN_OD.png'
-      const pokemonURL = 'pokemon-sprites/376_0.png'
-      makeSprites(trainerURL, pokemonURL)
-      $(".which-trainer").text("Trainer Steven, Pokemon Metagross")
-    }
-
-    if (musicChoice === "R") {
-      music[2].play()
-      pauseAll(2)
-      const imageURL = 'images/MEGAMETAGROSSNIGHT.jpeg'
-      $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "105%");
-      const trainerURL = 'pokemon-sprites/Steven_OD.png'
-      const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
-      makeSprites(trainerURL, pokemonURL)
-      $(".which-trainer").text("Trainer Steven, Pokemon Mega Metagross")
-    }
-    
-    $(".music").prop("currentTime",0);
   })
 
   $("#wallace").click(function(){
@@ -192,6 +212,7 @@ $(document).ready(function(){
 
    if (musicChoice === "Q") {
     removeStyles(music[9], music[5])
+    gifRestore(4)
    
    } else {
     if (musicChoice === "O") {
@@ -216,8 +237,8 @@ $(document).ready(function(){
       $("body").css("background-image", "url(" + imageURL + ")");
       $(".music").prop("currentTime",0);
     }
-    gifDisappear(4);
     $(".which-trainer").text("Trainer Wallace, Pokemon Milotic")
+    gifDisappear(4);
     }
   })
 
@@ -230,6 +251,7 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
     removeStyles(music[11], music[4])
+    gifRestore(5)
     } else {
      if (musicChoice === "O") {
        music[11].play();
@@ -251,6 +273,7 @@ $(document).ready(function(){
      let pokemonURL = 'pokemon-sprites/445s_0.png'
      let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
       makeSprites(trainerURL, pokemonURL)
+      gifDisappear(5)
    }
  })
   
@@ -265,6 +288,7 @@ $(document).ready(function(){
 
    if (musicChoice === "Q") {
     removeStyles(music[6], music[13])
+    gifRestore(6)
    } else {
      if (musicChoice === "O") {
       music[6].play();
@@ -287,6 +311,7 @@ $(document).ready(function(){
       const pokemonURL = 'pokemon-sprites/637_down.png'
       makeSprites(trainerURL, pokemonURL)
       $(".music").prop("currentTime",0); 
+      gifDisappear(6)
     }
   })
 
@@ -300,6 +325,7 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
       removeStyles(music[7], music[12])
+      gifRestore(7);
      } else {
        if (musicChoice === "O") {
          music[7].play();
@@ -325,6 +351,7 @@ $(document).ready(function(){
       
        $(".which-trainer").text("Trainer Iris, Pokemon Haxorus")
        $(".music").prop("currentTime",0);
+       gifDisappear(7);
      }
    })
 
@@ -338,6 +365,7 @@ $(document).ready(function(){
 
     if (musicChoice === "Q") {
       removeStyles(music[14], music[15])
+      gifRestore(8);
      } else {
        if (musicChoice === "O") {
          music[14].play();
@@ -363,6 +391,7 @@ $(document).ready(function(){
       
        $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram")
        $(".music").prop("currentTime",0);
+       gifDisappear(8);
      }
    })
 
