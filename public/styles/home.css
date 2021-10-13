@@ -7,7 +7,7 @@ body {
   align-items: center;
   width: 100%;
   height: 120vh;
-  border: 4px solid black;
+  /* border: 4px solid black; */
   margin: 0;
   box-sizing: border-box;
   font-family: 'Cabin';
@@ -16,12 +16,12 @@ body {
 
 .title {
   align-self: center;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   
 }
 
 .description-container {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -32,14 +32,14 @@ body {
 .which-trainer {
   font-size: 35px;
   width: 100%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   justify-content: flex-end;
   
 }
 
 .sprite-container {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 230px;
   height: 100%;
   display: flex;
@@ -71,7 +71,7 @@ body {
 }
 
 .mini-gif-container {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -80,7 +80,7 @@ body {
 }
 
 .reactive-trainer-text {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   height: 15%;
   width: 50%;
   display: flex;

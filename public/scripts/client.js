@@ -1,6 +1,24 @@
+// import { textChange } from './reactiveText'
+
+
 $(document).ready(function(){
   const music = $(".music");
   const gif = $(".gif");
+
+  function textChange(gif, gifText) {
+    gif.hover(function(){
+      $(".reactive-trainer-text").text(gifText)
+    })
+    $(".mini-gif-container").mouseleave(function(){
+      $(".reactive-trainer-text").text("Select A Trainer")
+    })
+  }
+
+  function whenQuit(gif,gifText) {
+    $(".reactive-trainer-text").text(gifText)
+    textChange(gif,gifText)
+  }
+
 
   function pauseAll(currentIndex) {
     music.each(song => {
@@ -99,6 +117,10 @@ $(document).ready(function(){
 
   $("#blue").click(function(){
     $(".sprite-container").remove();
+    $(".reactive-trainer-text").html("");
+    $("#blue").hover(() => {$(".reactive-trainer-text").html("")});
+    $(".mini-gif-container").mouseleave(() => {$(".reactive-trainer-text").html("")});
+
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -107,21 +129,25 @@ $(document).ready(function(){
    if (musicChoice === "Q") {
     removeStyles(music[10], music[3])
     gifRestore(1)
+    whenQuit($("#blue"),"Blue")
    } else {
     if (musicChoice === "O") {
       music[10].play();
       pauseAll(10);
+      let imageURL = 'images/arcaninewallpaper.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "100%");
     }
  
     if (musicChoice === "R") {
       music[3].play();
       pauseAll(3);
+      let imageURL = 'images/ArcanineHD.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "100%");
     }
      
      music.prop("currentTime",0);
-     let imageURL = 'images/arcaninewallpaper.jpeg'
-     $("body").css("background-image", "url(" + imageURL + ")");
-     $("body").css("background-size", "100%");
      $(".which-trainer").text("Trainer Blue, Pokemon Arcanine")
      const trainerURL = 'pokemon-sprites/Blue_OD.png'
      const pokemonURL = 'pokemon-sprites/059_left.png'
@@ -244,6 +270,9 @@ $(document).ready(function(){
 
   $("#cynthia").click(function(){
      $(".sprite-container").remove();
+     $(".reactive-trainer-text").html("");
+     $("#cynthia").hover(() => {$(".reactive-trainer-text").html("")});
+     $(".mini-gif-container").mouseleave(() => {$(".reactive-trainer-text").html("")});
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
@@ -252,6 +281,7 @@ $(document).ready(function(){
     if (musicChoice === "Q") {
     removeStyles(music[11], music[4])
     gifRestore(5)
+    whenQuit($("#cynthia"),"Cynthia")
     } else {
      if (musicChoice === "O") {
        music[11].play();
@@ -343,7 +373,7 @@ $(document).ready(function(){
          pauseAll(12);
          let imageURL = 'images/haxorusPOWER.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "100%");
+         $("body").css("background-size", "97%");
          const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          const pokemonURL = 'pokemon-sprites/612_left.png'
          makeSprites(trainerURL, pokemonURL)
@@ -372,7 +402,7 @@ $(document).ready(function(){
          pauseAll(14);
          let imageURL = 'images/halfZR.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "110%");
+         $("body").css("background-size", "100%");
          // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          // const pokemonURL = 'pokemon-sprites/612_left.png'
          // makeSprites(trainerURL, pokemonURL)
