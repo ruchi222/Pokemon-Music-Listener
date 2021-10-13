@@ -121,7 +121,7 @@ $(document).ready(function(){
      music.prop("currentTime",0);
      let imageURL = 'images/arcaninewallpaper.jpeg'
      $("body").css("background-image", "url(" + imageURL + ")");
-     $("body").css("background-size", "auto");
+     $("body").css("background-size", "100%");
      $(".which-trainer").text("Trainer Blue, Pokemon Arcanine")
      const trainerURL = 'pokemon-sprites/Blue_OD.png'
      const pokemonURL = 'pokemon-sprites/059_left.png'
@@ -189,9 +189,9 @@ $(document).ready(function(){
       if (musicChoice === "R") {
         music[2].play()
         pauseAll(2)
-        const imageURL = 'images/MEGAMETAGROSSNIGHT.jpeg'
+        const imageURL = 'images/METAGROSSSHINYMEGA.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
-        $("body").css("background-size", "105%");
+        $("body").css("background-size", "97%");
         const trainerURL = 'pokemon-sprites/Steven_OD.png'
         const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
         makeSprites(trainerURL, pokemonURL)
