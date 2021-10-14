@@ -2,9 +2,11 @@ $(document).ready(function(){
   const music = $(".music");
   const gif = $(".gif");
 
+  console.log(music)
+
   const musicObj = {
     red: [music[8], music[0]],
-    blue: [music[10], music[9]],
+    blue: [music[10], music[3]],
     lance: [music[8], music[1]],
     steven: [music[9], music[2]],
     wallace: [music[9], music[5]],
@@ -13,10 +15,7 @@ $(document).ready(function(){
     iris: [music[7], music[12]],
     n: [music[14], music[15]]
   }
-
-  console.log("0 and 1 -->", musicObj.red[0], musicObj.red[1])
-  console.log("Music 8 -->", music[8])
-  console.log("Music obj keys -->", Object.keys(musicObj.red))
+  
 
   function textChange(gif, gifText) {
     gif.hover(function(){
@@ -43,12 +42,14 @@ $(document).ready(function(){
       }
     })
   }
+  
 
   function objPlaySong(currentKey, currentIndex, index) {
     for (key of Object.keys(musicObj)) {
       if (key !== currentKey) {
-        return;
-      } if (key === currentKey) {
+        console.log("Keys ARE NOT EQUAL")
+
+      } else {
         musicObj[currentKey][currentIndex].play();
         musicObj[currentKey][index].pause()
         console.log("Keys ARE EQUAL")
@@ -101,8 +102,7 @@ $(document).ready(function(){
 
   $("#red").click(function(){
     $(".sprite-container").remove();
-     console.log(music)
-     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
+    let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
      while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
       musicChoice = prompt("O for original or R for remastered")
     }
@@ -120,7 +120,7 @@ $(document).ready(function(){
       }
   
       if (musicChoice === "R") {
-        objPlaySong('red', 1, 0)
+        objPlaySong('red', 1, 0);
         const imageURL = 'images/wp2403498.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "130%");
@@ -150,17 +150,15 @@ $(document).ready(function(){
     whenQuit($("#blue"),"Blue")
    } else {
     if (musicChoice === "O") {
-      musicObj.blue[0].play();
-      pauseAll(musicObj.blue[0]);
-      let imageURL = 'images/arcaninewallpaper.jpeg'
+      objPlaySong('blue', 0, 1);
+      const imageURL = 'images/arcaninewallpaper.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
     }
  
     if (musicChoice === "R") {
-      musicObj.blue[1].play();
-      pauseAll(musicObj.blue[1]);
-      let imageURL = 'images/ArcanineHD.jpeg'
+      objPlaySong('blue', 1, 0);
+      const imageURL = 'images/ArcanineHD.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
     }
@@ -182,17 +180,15 @@ $(document).ready(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(music[8], music[1])
+    removeStyles(musicObj.lance[0], musicObj.lance[1])
     gifRestore(2)
    } else {
     if (musicChoice === "O") {
-      music[8].play();
-      pauseAll(8);
+      objPlaySong('lance', 0, 1)
     }
  
     if (musicChoice === "R") {
-      music[1].play();
-      pauseAll(1);
+      objPlaySong('lance', 1, 0)
     }
      let imageURL = 'images/DRAGONITE.jpeg'
      let pokemonURL = 'pokemon-sprites/149_up.png';
