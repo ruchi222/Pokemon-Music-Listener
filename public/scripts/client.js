@@ -443,7 +443,7 @@ $("#alder").click(function(){
          // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          // const pokemonURL = 'pokemon-sprites/612_left.png'
          // makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram");
+         $(".which-trainer").text("Trainer N, Pokemon Reshiram");
        }
    
        if (musicChoice === "R") {
@@ -493,9 +493,9 @@ $("#alder").click(function(){
    
        if (musicChoice === "R") {
          objPlaySong('ghetsis', 1, 0);
-         let imageURL = 'images/3199387.jpeg'
+         let imageURL = 'images/d4r0u8f-098fdddc-af28-4892-82e9-2f85f808ce15.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "100%");
+         $("body").css("background-size", "124%");
          // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          // const pokemonURL = 'pokemon-sprites/612_left.png'
          // makeSprites(trainerURL, pokemonURL)
