@@ -13,7 +13,8 @@ $(document).ready(function(){
     cynthia: [music[11], music[4]],
     alder: [music[6], music[13]],
     iris: [music[7], music[12]],
-    n: [music[14], music[15]]
+    n: [music[14], music[15]],
+    ghetsis: [music[16], music[17]]
   }
   
 
@@ -332,9 +333,8 @@ $(document).ready(function(){
    }
  })
   
-
-  
-  $("#alder").click(function(){
+ 
+$("#alder").click(function(){
     const alderZero = musicObj.alder[0];
     const alderOne = musicObj.alder[1];
 
@@ -349,6 +349,7 @@ $(document).ready(function(){
    if (musicChoice === "Q") {
     removeStyles(alderZero, alderOne);
     gifRestore(6)
+    whenQuit($("#alder"),"Alder")
    } else {
      if (musicChoice === "O") {
       objPlaySong('alder', 0, 1);
@@ -389,6 +390,7 @@ $(document).ready(function(){
     if (musicChoice === "Q") {
       removeStyles(irisZero, irisOne);
       gifRestore(7);
+      whenQuit($("#iris"),"Iris")
      } else {
        if (musicChoice === "O") {
          objPlaySong('iris', 0, 1);
@@ -431,30 +433,78 @@ $(document).ready(function(){
     if (musicChoice === "Q") {
       removeStyles(nZero, nOne);
       gifRestore(8);
+      whenQuit($("#n"),"N")
      } else {
        if (musicChoice === "O") {
          objPlaySong('n', 0, 1);
-         let imageURL = 'images/halfZR.jpeg'
+         let imageURL = 'images/Reshiram-Wallpapers-HD.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "100%");
+         $("body").css("background-size", "115%");
          // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          // const pokemonURL = 'pokemon-sprites/612_left.png'
          // makeSprites(trainerURL, pokemonURL)
+         $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram");
        }
    
        if (musicChoice === "R") {
          objPlaySong('n', 1, 0);
-         let imageURL = 'images/NPower.jpeg'
+         let imageURL = 'images/me2fhc4zfbf31.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "110%");
          // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
          // const pokemonURL = 'pokemon-sprites/612_left.png'
          // makeSprites(trainerURL, pokemonURL)
+         $(".which-trainer").text("Trainer N, Pokemon Zoroark");
        }
       
-       $(".which-trainer").text("Trainer N, Pokemon Zekrom/Reshiram")
+       
        $(".music").prop("currentTime",0);
        gifDisappear(8);
+     }
+   })
+
+   $("#ghetsis").click(function(){
+    const ghetZero = musicObj.ghetsis[0];
+    const ghetOne = musicObj.ghetsis[1];
+
+    $(".sprite-container").remove();
+    $(".reactive-trainer-text").css("opacity","0");
+
+    let musicChoice = prompt("Type which ever version you want: Original or Remastered")
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+      musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === "Q") {
+      removeStyles(ghetZero, ghetOne);
+      gifRestore(9);
+      whenQuit($("#ghetsis"),"Ghetsis")
+     } else {
+       if (musicChoice === "O") {
+         objPlaySong('ghetsis', 0, 1);
+         let imageURL = 'images/hydreigon.png'
+         $("body").css("background-image", "url(" + imageURL + ")");
+         $("body").css("background-size", "115%");
+         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+         // const pokemonURL = 'pokemon-sprites/612_left.png'
+         // makeSprites(trainerURL, pokemonURL)
+         $(".which-trainer").text("Trainer Ghetsis, Pokemon Hydreigon");
+       }
+   
+       if (musicChoice === "R") {
+         objPlaySong('ghetsis', 1, 0);
+         let imageURL = 'images/3199387.jpeg'
+         $("body").css("background-image", "url(" + imageURL + ")");
+         $("body").css("background-size", "100%");
+         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
+         // const pokemonURL = 'pokemon-sprites/612_left.png'
+         // makeSprites(trainerURL, pokemonURL)
+         $(".which-trainer").text("Trainer Ghetsis, Kyurem Black/White");
+       }
+      
+       
+       $(".music").prop("currentTime",0);
+       gifDisappear(9);
      }
    })
 
