@@ -1,9 +1,22 @@
-// import { textChange } from './reactiveText'
-
-
 $(document).ready(function(){
   const music = $(".music");
   const gif = $(".gif");
+
+  const musicObj = {
+    red: [music[8], music[0]],
+    blue: [music[10], music[9]],
+    lance: [music[8], music[1]],
+    steven: [music[9], music[2]],
+    wallace: [music[9], music[5]],
+    cynthia: [music[11], music[4]],
+    alder: [music[6], music[13]],
+    iris: [music[7], music[12]],
+    n: [music[14], music[15]]
+  }
+
+  console.log("0 and 1 -->", musicObj.red[0], musicObj.red[1])
+  console.log("Music 8 -->", music[8])
+  console.log("Music obj keys -->", Object.keys(musicObj.red))
 
   function textChange(gif, gifText) {
     gif.hover(function(){
@@ -15,20 +28,32 @@ $(document).ready(function(){
   }
 
   function whenQuit(gif,gifText) {
-    $(".reactive-trainer-text").text(gifText)
-    textChange(gif,gifText)
+    $(".reactive-trainer-text").css("opacity","1");
+    $(".reactive-trainer-text").text(gifText);
+    textChange(gif,gifText);
   }
 
 
   function pauseAll(currentIndex) {
     music.each(song => {
       if (currentIndex !== song) {
-        // console.log("MUSIC", music[song]);
         music[song].pause();
       } else {
         console.log("No we are equal :(")
       }
     })
+  }
+
+  function objPlaySong(currentKey, currentIndex, index) {
+    for (key of Object.keys(musicObj)) {
+      if (key !== currentKey) {
+        return;
+      } if (key === currentKey) {
+        musicObj[currentKey][currentIndex].play();
+        musicObj[currentKey][index].pause()
+        console.log("Keys ARE EQUAL")
+      }
+    }
   }
 
   function makeSprites(trainerLink,pokeLink){
@@ -56,7 +81,6 @@ $(document).ready(function(){
     gif.each(g => {
       if (index !== g) {
         const currentGif = gif[g];
-        console.log("Invisible Gif -->", gif[g])
         $(currentGif).css("opacity", "0");
         $(currentGif).css("pointer-events", "none");
       } else {
@@ -75,8 +99,6 @@ $(document).ready(function(){
     })
   }
 
-
-  
   $("#red").click(function(){
     $(".sprite-container").remove();
      console.log(music)
@@ -86,21 +108,19 @@ $(document).ready(function(){
     }
 
     if (musicChoice === "Q") {
-      removeStyles(music[8], music[0])
+      removeStyles(musicObj.red[0], musicObj.red[1])
       gifRestore(0)
 
     } else {
       if (musicChoice === "O") {
-        music[8].play();
-        pauseAll(8);
+        objPlaySong('red', 0, 1);
         const imageURL = 'images/pokemon-pokemon-red-and-blue-pikachu-wallpaper-preview.jpg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "120%");
       }
   
       if (musicChoice === "R") {
-        music[0].play();
-        pauseAll(0);
+        objPlaySong('red', 1, 0)
         const imageURL = 'images/wp2403498.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "130%");
@@ -117,9 +137,7 @@ $(document).ready(function(){
 
   $("#blue").click(function(){
     $(".sprite-container").remove();
-    $(".reactive-trainer-text").html("");
-    $("#blue").hover(() => {$(".reactive-trainer-text").html("")});
-    $(".mini-gif-container").mouseleave(() => {$(".reactive-trainer-text").html("")});
+     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
@@ -127,21 +145,21 @@ $(document).ready(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(music[10], music[3])
+    removeStyles(musicObj.blue[0], musicObj.blue[1])
     gifRestore(1)
     whenQuit($("#blue"),"Blue")
    } else {
     if (musicChoice === "O") {
-      music[10].play();
-      pauseAll(10);
+      musicObj.blue[0].play();
+      pauseAll(musicObj.blue[0]);
       let imageURL = 'images/arcaninewallpaper.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
     }
  
     if (musicChoice === "R") {
-      music[3].play();
-      pauseAll(3);
+      musicObj.blue[1].play();
+      pauseAll(musicObj.blue[1]);
       let imageURL = 'images/ArcanineHD.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
@@ -270,10 +288,9 @@ $(document).ready(function(){
 
   $("#cynthia").click(function(){
      $(".sprite-container").remove();
-     $(".reactive-trainer-text").html("");
-     $("#cynthia").hover(() => {$(".reactive-trainer-text").html("")});
-     $(".mini-gif-container").mouseleave(() => {$(".reactive-trainer-text").html("")});
-    let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
+     $(".reactive-trainer-text").css("opacity","0");
+  
+     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
      musicChoice = prompt("O for original or R for remastered")
    }
@@ -298,6 +315,7 @@ $(document).ready(function(){
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "100%");
      }
+
      $(".music").prop("currentTime",0);
      $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
      let pokemonURL = 'pokemon-sprites/445s_0.png'
