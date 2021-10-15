@@ -128,7 +128,7 @@ $(document).ready(function(){
       }
       
       music.prop("currentTime",0);
-      $(".which-trainer").text("Trainer Red, Pokemon Pikachu");
+      $(".which-trainer").text("Red and Pikachu");
       gifDisappear(0)
     }
   })
@@ -171,7 +171,7 @@ $(document).ready(function(){
     }
      
      music.prop("currentTime",0);
-     $(".which-trainer").text("Trainer Blue, Pokemon Arcanine")
+     $(".which-trainer").text("Blue and Arcanine")
      gifDisappear(1)
    }
   })
@@ -210,7 +210,7 @@ $(document).ready(function(){
      $("body").css("background-image", "url(" + imageURL + ")");
      $("body").css("background-size", "auto");
      $(".music").prop("currentTime",0);
-     $(".which-trainer").text(`Trainer Lance, Pokemon Dragonite`)
+     $(".which-trainer").text(`Lance and Dragonite`)
       gifDisappear(2)
    }
   })
@@ -241,7 +241,7 @@ $(document).ready(function(){
         const trainerURL = 'pokemon-sprites/Steven_III_OD.png'
         const pokemonURL = 'pokemon-sprites/376_0.png';
         makeSprites(trainerURL, pokemonURL);
-        $(".which-trainer").text("Trainer Steven, Pokemon Metagross");
+        $(".which-trainer").text("Steven and Metagross");
       }
   
       if (musicChoice === "R") {
@@ -252,7 +252,7 @@ $(document).ready(function(){
         const trainerURL = 'pokemon-sprites/STEVEN_OD.png';
         const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
         makeSprites(trainerURL, pokemonURL)
-        $(".which-trainer").text("Trainer Steven, Pokemon Mega Metagross")
+        $(".which-trainer").text("Steven and Mega Metagross")
       }
       $(".music").prop("currentTime",0);
       gifDisappear(3)
@@ -297,7 +297,7 @@ $(document).ready(function(){
       $("body").css("background-image", "url(" + imageURL + ")");
       $(".music").prop("currentTime",0);
     }
-    $(".which-trainer").text("Trainer Wallace, Pokemon Milotic");
+    $(".which-trainer").text("Wallace and Milotic");
     gifDisappear(4);
     }
   })
@@ -340,7 +340,7 @@ $(document).ready(function(){
      }
 
      $(".music").prop("currentTime",0);
-     $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
+     $(".which-trainer").text(`Cynthia and Garchomp`)
       gifDisappear(5)
    }
  })
@@ -377,7 +377,7 @@ $("#alder").click(function(){
       $("body").css("background-size", "103%");
      }
    
-      $(".which-trainer").text("Trainer Alder, Pokemon Volcarona")
+      $(".which-trainer").text("Alder and Volcarona")
       const trainerURL = 'pokemon-sprites/ALDER_OD.png'
       const pokemonURL = 'pokemon-sprites/637_down.png'
       makeSprites(trainerURL, pokemonURL)
@@ -424,7 +424,7 @@ $("#alder").click(function(){
          makeSprites(trainerURL, pokemonURL)
        }
       
-       $(".which-trainer").text("Trainer Iris, Pokemon Haxorus")
+       $(".which-trainer").text("Iris and Haxorus")
        $(".music").prop("currentTime",0);
        gifDisappear(7);
      }
@@ -455,7 +455,7 @@ $("#alder").click(function(){
          const trainerURL = 'pokemon-sprites/N.png'
          const pokemonURL = 'pokemon-sprites/THERESH.png'
          makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Trainer N, Pokemon Reshiram");
+         $(".which-trainer").text("N and Reshiram");
        }
    
        if (musicChoice === "R") {
@@ -466,7 +466,7 @@ $("#alder").click(function(){
          const trainerURL = 'pokemon-sprites/N.png'
          const pokemonURL = 'pokemon-sprites/571.png'
          makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Trainer N, Pokemon Zoroark");
+         $(".which-trainer").text("N and Zoroark");
        }
       
        
@@ -500,7 +500,7 @@ $("#alder").click(function(){
          const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
          const pokemonURL = 'pokemon-sprites/635.png'
          makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Trainer Ghetsis, Pokemon Hydreigon");
+         $(".which-trainer").text("Ghetsis and Hydreigon");
        }
    
        if (musicChoice === "R") {
@@ -511,7 +511,7 @@ $("#alder").click(function(){
          const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
          const pokemonURL = 'pokemon-sprites/raw.gif'
          makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Trainer Ghetsis, Kyurem Black/White");
+         $(".which-trainer").text("Ghetsis and Kyurem White");
        }
       
        
