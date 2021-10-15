@@ -112,20 +112,23 @@ $(document).ready(function(){
         const imageURL = 'images/pokemon-pokemon-red-and-blue-pikachu-wallpaper-preview.jpg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "120%");
-      }
+        const trainerURL = 'pokemon-sprites/Red_FRLG_OD.webp'
+        const pokemonURL = 'pokemon-sprites/025_right.png'
+        makeSprites(trainerURL, pokemonURL)
+       }
   
       if (musicChoice === "R") {
         objPlaySong('red', 1, 0);
         const imageURL = 'images/wp2403498.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "130%");
+        const trainerURL = 'pokemon-sprites/Red_OD.png'
+        const pokemonURL = 'pokemon-sprites/025_right.png'
+        makeSprites(trainerURL, pokemonURL)
       }
       
       music.prop("currentTime",0);
       $(".which-trainer").text("Trainer Red, Pokemon Pikachu");
-      const trainerURL = 'pokemon-sprites/Red_OD.png'
-      const pokemonURL = 'pokemon-sprites/025_right.png'
-      makeSprites(trainerURL, pokemonURL)
       gifDisappear(0)
     }
   })
@@ -152,6 +155,9 @@ $(document).ready(function(){
       const imageURL = 'images/arcaninewallpaper.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
+      const trainerURL = 'pokemon-sprites/Blue_III_OD.webp'
+     const pokemonURL = 'pokemon-sprites/059_left.png'
+     makeSprites(trainerURL, pokemonURL)
     }
  
     if (musicChoice === "R") {
@@ -159,13 +165,13 @@ $(document).ready(function(){
       const imageURL = 'images/ArcanineHD.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
+      const trainerURL = 'pokemon-sprites/Blue_OD.png'
+     const pokemonURL = 'pokemon-sprites/059_left.png'
+     makeSprites(trainerURL, pokemonURL)
     }
      
      music.prop("currentTime",0);
      $(".which-trainer").text("Trainer Blue, Pokemon Arcanine")
-     const trainerURL = 'pokemon-sprites/Blue_OD.png'
-     const pokemonURL = 'pokemon-sprites/059_left.png'
-     makeSprites(trainerURL, pokemonURL)
      gifDisappear(1)
    }
   })
@@ -189,19 +195,22 @@ $(document).ready(function(){
    } else {
     if (musicChoice === "O") {
       objPlaySong('lance', 0, 1)
+      const pokemonURL = 'pokemon-sprites/149_up.png';
+      const trainerURL = 'pokemon-sprites/Lance_III_OD.png';
+      makeSprites(trainerURL,pokemonURL);
     }
  
     if (musicChoice === "R") {
       objPlaySong('lance', 1, 0)
+      const pokemonURL = 'pokemon-sprites/149_up.png';
+      const trainerURL = 'pokemon-sprites/Lance_OD.png';
+      makeSprites(trainerURL,pokemonURL);
     }
      let imageURL = 'images/DRAGONITE.jpeg'
-     let pokemonURL = 'pokemon-sprites/149_up.png';
-     let trainerURL = 'pokemon-sprites/Lance_OD.png'
      $("body").css("background-image", "url(" + imageURL + ")");
      $("body").css("background-size", "auto");
      $(".music").prop("currentTime",0);
      $(".which-trainer").text(`Trainer Lance, Pokemon Dragonite`)
-      makeSprites(trainerURL,pokemonURL)
       gifDisappear(2)
    }
   })
@@ -229,7 +238,7 @@ $(document).ready(function(){
         const imageURL = 'images/manthatmeta.jpeg';
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "auto");
-        const trainerURL = 'pokemon-sprites/STEVEN_OD.png';
+        const trainerURL = 'pokemon-sprites/Steven_III_OD.png'
         const pokemonURL = 'pokemon-sprites/376_0.png';
         makeSprites(trainerURL, pokemonURL);
         $(".which-trainer").text("Trainer Steven, Pokemon Metagross");
@@ -240,7 +249,7 @@ $(document).ready(function(){
         const imageURL = 'images/METAGROSSSHINYMEGA.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "97%");
-        const trainerURL = 'pokemon-sprites/Steven_OD.png'
+        const trainerURL = 'pokemon-sprites/STEVEN_OD.png';
         const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
         makeSprites(trainerURL, pokemonURL)
         $(".which-trainer").text("Trainer Steven, Pokemon Mega Metagross")
@@ -271,7 +280,7 @@ $(document).ready(function(){
     if (musicChoice === "O") {
       objPlaySong('wallace', 0, 1);
       const imageURL = 'images/MILOTIC.jpeg'
-      const trainerURL = 'pokemon-sprites/Wallace_OD.png'
+      const trainerURL = 'pokemon-sprites/Wallace_III_OD.png'
       const pokemonURL = 'pokemon-sprites/350.png'
       makeSprites(trainerURL, pokemonURL)
       $("body").css("background-image", "url(" + imageURL + ")");
@@ -315,6 +324,9 @@ $(document).ready(function(){
        let imageURL = 'images/grrrr.png'
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "130%");
+       const pokemonURL = 'pokemon-sprites/445s_0.png'
+       const trainerURL = 'pokemon-sprites/Cynthia_IV_OD.png'
+       makeSprites(trainerURL, pokemonURL)
      }
   
      if (musicChoice === "R") {
@@ -322,13 +334,13 @@ $(document).ready(function(){
        let imageURL = 'images/GARCHOMP.jpeg'
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "100%");
+       const pokemonURL = 'pokemon-sprites/445s_0.png'
+       const trainerURL = 'pokemon-sprites/Cynthia_OD.png'
+       makeSprites(trainerURL, pokemonURL)
      }
 
      $(".music").prop("currentTime",0);
      $(".which-trainer").text(`Trainer Cynthia, Pokemon Garchomp`)
-     let pokemonURL = 'pokemon-sprites/445s_0.png'
-     let trainerURL = 'pokemon-sprites/Cynthia_OD.png'
-      makeSprites(trainerURL, pokemonURL)
       gifDisappear(5)
    }
  })
