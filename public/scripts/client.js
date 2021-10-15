@@ -440,9 +440,9 @@ $("#alder").click(function(){
          let imageURL = 'images/Reshiram-Wallpapers-HD.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
-         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-         // const pokemonURL = 'pokemon-sprites/612_left.png'
-         // makeSprites(trainerURL, pokemonURL)
+         const trainerURL = 'pokemon-sprites/N.png'
+         const pokemonURL = 'pokemon-sprites/THERESH.png'
+         makeSprites(trainerURL, pokemonURL)
          $(".which-trainer").text("Trainer N, Pokemon Reshiram");
        }
    
@@ -451,9 +451,9 @@ $("#alder").click(function(){
          let imageURL = 'images/me2fhc4zfbf31.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "110%");
-         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-         // const pokemonURL = 'pokemon-sprites/612_left.png'
-         // makeSprites(trainerURL, pokemonURL)
+         const trainerURL = 'pokemon-sprites/N.png'
+         const pokemonURL = 'pokemon-sprites/571.png'
+         makeSprites(trainerURL, pokemonURL)
          $(".which-trainer").text("Trainer N, Pokemon Zoroark");
        }
       
@@ -485,20 +485,20 @@ $("#alder").click(function(){
          let imageURL = 'images/hydreigon.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
-         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-         // const pokemonURL = 'pokemon-sprites/612_left.png'
-         // makeSprites(trainerURL, pokemonURL)
+         const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
+         const pokemonURL = 'pokemon-sprites/635.png'
+         makeSprites(trainerURL, pokemonURL)
          $(".which-trainer").text("Trainer Ghetsis, Pokemon Hydreigon");
        }
    
        if (musicChoice === "R") {
          objPlaySong('ghetsis', 1, 0);
-         let imageURL = 'images/d4r0u8f-098fdddc-af28-4892-82e9-2f85f808ce15.jpeg'
+         let imageURL = 'images/thumb-1920-641967.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "124%");
-         // const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-         // const pokemonURL = 'pokemon-sprites/612_left.png'
-         // makeSprites(trainerURL, pokemonURL)
+         const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
+         const pokemonURL = 'pokemon-sprites/raw.gif'
+         makeSprites(trainerURL, pokemonURL)
          $(".which-trainer").text("Trainer Ghetsis, Kyurem Black/White");
        }
       
