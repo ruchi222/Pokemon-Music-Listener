@@ -13,9 +13,25 @@ $(document).ready(function(){
     n: [music[14], music[15]],
     ghetsis: [music[16], music[17]]
   }
-
   
-
+  function cancelOptions(originalKeyword, remixKeyword, oldTrainer, oldPokemon, newTrainer, newPokemon) {
+    const whichTrainer = $(".which-trainer")
+    if (whichTrainer.text() === originalKeyword) {
+       $(".sprite-container").remove();
+        const trainerURL = oldTrainer
+        const pokemonURL = oldPokemon
+        makeSprites(trainerURL, pokemonURL)
+    } else if (whichTrainer.text() === remixKeyword) {
+      $(".sprite-container").remove();
+      const trainerURL = newTrainer
+      const pokemonURL = newPokemon
+      makeSprites(trainerURL, pokemonURL)
+    } else {
+      console.log("DIDNT CANCEL NYTHHIN")
+      return;
+    }
+  }
+  
   function textChange(gif, gifText) {
     gif.hover(function(){
       $(".reactive-trainer-text").text(gifText)
@@ -90,13 +106,20 @@ $(document).ready(function(){
   $("#red").click(function(){
     const redZero = musicObj.red[0];
     const redOne = musicObj.red[1];
+    const originalRed = 'pokemon-sprites/Red_FRLG_OD.webp';
+    const newRed = 'pokemon-sprites/Red_OD.png';
+    const pikachu = 'pokemon-sprites/025_right.png';
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
-     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+     while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
       musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === null) {
+      cancelOptions("Red and Pikachu #1", "Red and Pikachu #2", originalRed, pikachu, newRed, pikachu)
     }
 
     if (musicChoice === "Q") {
@@ -110,9 +133,10 @@ $(document).ready(function(){
         const imageURL = 'images/pokemon-pokemon-red-and-blue-pikachu-wallpaper-preview.jpg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "120%");
-        const trainerURL = 'pokemon-sprites/Red_FRLG_OD.webp'
-        const pokemonURL = 'pokemon-sprites/025_right.png'
-        makeSprites(trainerURL, pokemonURL)
+        makeSprites(originalRed, pikachu)
+        $(".which-trainer").text("Red and Pikachu #1");
+        gifDisappear(0)
+        music.prop("currentTime",0);
        } 
        
        if (musicChoice === "R") {
@@ -120,19 +144,20 @@ $(document).ready(function(){
         const imageURL = 'images/wp2403498.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "130%");
-        const trainerURL = 'pokemon-sprites/Red_OD.png'
-        const pokemonURL = 'pokemon-sprites/025_right.png'
-        makeSprites(trainerURL, pokemonURL)
+        makeSprites(newRed, pikachu);
+        $(".which-trainer").text("Red and Pikachu #2");
+        gifDisappear(0)
+        music.prop("currentTime",0);
       } 
-      $(".which-trainer").text("Red and Pikachu");
-      gifDisappear(0)
-      music.prop("currentTime",0);
     }
   })
 
   $("#blue").click(function(){
     const blueZero = musicObj.blue[0];
     const blueOne = musicObj.blue[1];
+    const originalBlue = 'pokemon-sprites/Blue_III_OD.webp';
+    const newBlue = 'pokemon-sprites/Blue_OD.png';
+    const arcanine = 'pokemon-sprites/059_left.png';
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
@@ -143,11 +168,11 @@ $(document).ready(function(){
    }
 
   if (musicChoice === null) {
-    console.log("nothing happened");
-    
-  }
+    cancelOptions("Blue and Arcanine #1", "Blue and Arcanine #2", originalBlue, arcanine, newBlue, arcanine)
+}
 
   if (musicChoice === "Q") {
+    $(".sprite-container").remove();
     removeStyles(blueZero, blueOne);
     gifRestore(1)
     whenQuit($("#blue"),"Blue")
@@ -158,18 +183,10 @@ $(document).ready(function(){
       const imageURL = 'images/arcaninewallpaper.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
-      const trainerURL = 'pokemon-sprites/Blue_III_OD.webp'
-      const pokemonURL = 'pokemon-sprites/059_left.png'
-      makeSprites(trainerURL, pokemonURL)
+      makeSprites(originalBlue, arcanine)
       music.prop("currentTime",0);
-     $(".which-trainer").text("Blue and Arcanine")
+     $(".which-trainer").text("Blue and Arcanine #1")
      gifDisappear(1)
-     $("#blue").click(() => {
-      $(".sprite-container").remove();
-      const trainerURL = 'pokemon-sprites/Blue_III_OD.webp'
-      const pokemonURL = 'pokemon-sprites/059_left.png'
-      makeSprites(trainerURL, pokemonURL)
-     })
    } 
     
     if (musicChoice === "R") {
@@ -177,33 +194,31 @@ $(document).ready(function(){
       const imageURL = 'images/ArcanineHD.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
-      const trainerURL = 'pokemon-sprites/Blue_OD.png'
-     const pokemonURL = 'pokemon-sprites/059_left.png'
-     makeSprites(trainerURL, pokemonURL)
+     makeSprites(newBlue, arcanine)
      music.prop("currentTime",0);
-     $(".which-trainer").text("Blue and Arcanine")
+     $(".which-trainer").text("Blue and Arcanine #2")
      gifDisappear(1)
-     $("#blue").click(() => {
-      $(".sprite-container").remove();
-      const trainerURL = 'pokemon-sprites/Blue_OD.png'
-      const pokemonURL = 'pokemon-sprites/059_left.png'
-      makeSprites(trainerURL, pokemonURL)
-     })
     }
   }
-  
 })
 
   $("#lance").click(function(){
     const lanceZero = musicObj.lance[0];
     const lanceOne = musicObj.lance[1];
+    const originalLance = 'pokemon-sprites/Lance_III_OD.png';
+    const newLance = 'pokemon-sprites/Lance_OD.png';
+    const dragonite = 'pokemon-sprites/149_up.png';
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
      musicChoice = prompt("O for original or R for remastered")
+   }
+
+   if (musicChoice === null) {
+     cancelOptions("Lance and Dragonite #1", "Lance and Dragonite #2", originalLance, dragonite, newLance, dragonite)
    }
 
    if (musicChoice === "Q") {
@@ -213,37 +228,45 @@ $(document).ready(function(){
    } else {
     if (musicChoice === "O") {
       objPlaySong('lance', 0, 1)
-      const pokemonURL = 'pokemon-sprites/149_up.png';
-      const trainerURL = 'pokemon-sprites/Lance_III_OD.png';
-      makeSprites(trainerURL,pokemonURL);
+      makeSprites(originalLance, dragonite);
+      const imageURL = 'images/DRAGONITE.jpeg'
+     $("body").css("background-image", "url(" + imageURL + ")");
+     $("body").css("background-size", "auto");
+     $(".music").prop("currentTime",0);
+     $(".which-trainer").text(`Lance and Dragonite #1`)
+      gifDisappear(2)
     }
  
     if (musicChoice === "R") {
       objPlaySong('lance', 1, 0)
-      const pokemonURL = 'pokemon-sprites/149_up.png';
-      const trainerURL = 'pokemon-sprites/Lance_OD.png';
-      makeSprites(trainerURL,pokemonURL);
+      makeSprites(newLance, dragonite);
+      const imageURL = 'images/DRAGONITE.jpeg'
+      $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "auto");
+      $(".music").prop("currentTime",0);
+      $(".which-trainer").text(`Lance and Dragonite #2`)
+       gifDisappear(2)
     }
-     let imageURL = 'images/DRAGONITE.jpeg'
-     $("body").css("background-image", "url(" + imageURL + ")");
-     $("body").css("background-size", "auto");
-     $(".music").prop("currentTime",0);
-     $(".which-trainer").text(`Lance and Dragonite`)
-      gifDisappear(2)
    }
   })
 
   $("#steven").click(function(){
     const stevenZero = musicObj.steven[0];
     const stevenOne = musicObj.steven[1];
-
+    const originalSteven = 'pokemon-sprites/Steven_III_OD.png'
+    const newSteven = 'pokemon-sprites/STEVEN_OD.png';
+    const metagross = 'pokemon-sprites/376_0.png';
+    const megaMetagross = 'pokemon-sprites/SHINYMETAGROSS.png';
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
-    
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
       musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === null) {
+      cancelOptions("Steven and Metagross #1", "Steven and Mega Metagross #2", originalSteven, metagross, newSteven, megaMetagross)
     }
 
     if (musicChoice === "Q") {
@@ -256,10 +279,10 @@ $(document).ready(function(){
         const imageURL = 'images/manthatmeta.jpeg';
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "auto");
-        const trainerURL = 'pokemon-sprites/Steven_III_OD.png'
-        const pokemonURL = 'pokemon-sprites/376_0.png';
-        makeSprites(trainerURL, pokemonURL);
-        $(".which-trainer").text("Steven and Metagross");
+        makeSprites(originalSteven, metagross);
+        $(".which-trainer").text("Steven and Metagross #1");
+        $(".music").prop("currentTime",0);
+        gifDisappear(3)
       }
   
       if (musicChoice === "R") {
@@ -267,26 +290,31 @@ $(document).ready(function(){
         const imageURL = 'images/METAGROSSSHINYMEGA.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "97%");
-        const trainerURL = 'pokemon-sprites/STEVEN_OD.png';
-        const pokemonURL = 'pokemon-sprites/SHINYMETAGROSS.png'
-        makeSprites(trainerURL, pokemonURL)
-        $(".which-trainer").text("Steven and Mega Metagross")
+        makeSprites(newSteven, megaMetagross)
+        $(".which-trainer").text("Steven and Mega Metagross #2")
+        $(".music").prop("currentTime",0);
+        gifDisappear(3)
       }
-      $(".music").prop("currentTime",0);
-      gifDisappear(3)
     }
   })
 
   $("#wallace").click(function(){
     const wallaceZero = musicObj.wallace[0];
     const wallaceOne = musicObj.wallace[1];
+    const orginialWallace = 'pokemon-sprites/Wallace_III_OD.png'
+    const newWallace = 'pokemon-sprites/Wallace_OD.png';
+    const milotic = 'pokemon-sprites/350.png'
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
      musicChoice = prompt("O for original or R for remastered")
+   }
+
+   if (musicChoice === null) {
+     cancelOptions("Wallace and Milotic #1", "Wallace and Milotic #2", orginialWallace, milotic, newWallace, milotic)
    }
 
    if (musicChoice === "Q") {
@@ -298,39 +326,46 @@ $(document).ready(function(){
     if (musicChoice === "O") {
       objPlaySong('wallace', 0, 1);
       const imageURL = 'images/MILOTIC.jpeg'
-      const trainerURL = 'pokemon-sprites/Wallace_III_OD.png'
-      const pokemonURL = 'pokemon-sprites/350.png'
-      makeSprites(trainerURL, pokemonURL)
+      makeSprites(orginialWallace, milotic)
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "110%");
       $(".music").prop("currentTime",0);
+      $(".which-trainer").text("Wallace and Milotic #1");
+      gifDisappear(4);
     }
  
     if (musicChoice === "R") {
       objPlaySong('wallace', 1, 0);
       let imageURL = 'images/MILOHD.jpeg';
-      const trainerURL = 'pokemon-sprites/Wallace_OD.png';
-      const pokemonURL = 'pokemon-sprites/350.png';
-      makeSprites(trainerURL, pokemonURL);
+
+      makeSprites(newWallace, milotic);
       $("body").css("background-image", "url(" + imageURL + ")");
       $(".music").prop("currentTime",0);
+      $(".which-trainer").text("Wallace and Milotic #2");
+      gifDisappear(4);
     }
-    $(".which-trainer").text("Wallace and Milotic");
-    gifDisappear(4);
     }
   })
 
   $("#cynthia").click(function(){
     const cynZero = musicObj.cynthia[0];
     const cynOne = musicObj.cynthia[1];
+    const originalCyn = 'pokemon-sprites/Cynthia_IV_OD.png'
+    const newCyn = 'pokemon-sprites/Cynthia_OD.png'
+    const garchomp = 'pokemon-sprites/445s_0.png'
+    
 
      $(".sprite-container").remove();
      $(".reactive-trainer-text").css("opacity","0");
   
      let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
      musicChoice = prompt("O for original or R for remastered")
    }
+
+   if (musicChoice === null) {
+    cancelOptions("Cynthia and Garchomp #1", "Cynthia and Garchomp #2", originalCyn, garchomp, newCyn, garchomp)
+  }
 
     if (musicChoice === "Q") {
     removeStyles(cynZero, cynOne)
@@ -342,9 +377,10 @@ $(document).ready(function(){
        let imageURL = 'images/grrrr.png'
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "130%");
-       const pokemonURL = 'pokemon-sprites/445s_0.png'
-       const trainerURL = 'pokemon-sprites/Cynthia_IV_OD.png'
-       makeSprites(trainerURL, pokemonURL)
+       makeSprites(originalCyn, garchomp)
+       $(".music").prop("currentTime",0);
+       $(".which-trainer").text(`Cynthia and Garchomp #1`)
+        gifDisappear(5)
      }
   
      if (musicChoice === "R") {
@@ -352,14 +388,13 @@ $(document).ready(function(){
        let imageURL = 'images/GARCHOMP.jpeg'
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "100%");
-       const pokemonURL = 'pokemon-sprites/445s_0.png'
-       const trainerURL = 'pokemon-sprites/Cynthia_OD.png'
-       makeSprites(trainerURL, pokemonURL)
+       makeSprites(newCyn, garchomp)
+       $(".music").prop("currentTime",0);
+       $(".which-trainer").text(`Cynthia and Garchomp #2`)
+        gifDisappear(5)
      }
 
-     $(".music").prop("currentTime",0);
-     $(".which-trainer").text(`Cynthia and Garchomp`)
-      gifDisappear(5)
+ 
    }
  })
   
