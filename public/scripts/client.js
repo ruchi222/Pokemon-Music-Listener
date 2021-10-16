@@ -131,13 +131,14 @@ $(document).ready(function(){
     }
 
     if (musicChoice === "Q") {
-      removeStyles(redZero, redOne)
+      removeStyles(redZero, redOne, $("#OG-red-music"), $("#red-music"))
       gifRestore(0)
       whenQuit($("#red"),"Red")
 
     } else {
       if (musicChoice === "O") {
         objPlaySong('red', 0, 1);
+        generateControls($("#red-music"), $("#OG-red-music"))
         const imageURL = 'images/pokemon-pokemon-red-and-blue-pikachu-wallpaper-preview.jpg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "120%");
@@ -149,6 +150,7 @@ $(document).ready(function(){
        
        if (musicChoice === "R") {
         objPlaySong('red', 1, 0);
+        generateControls($("#OG-red-music"), $("#red-music"))
         const imageURL = 'images/wp2403498.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "130%");
@@ -181,13 +183,14 @@ $(document).ready(function(){
 
   if (musicChoice === "Q") {
     $(".sprite-container").remove();
-    removeStyles(blueZero, blueOne);
+    removeStyles(blueZero, blueOne, $("#OG-blue-music"), $("#blue-music"));
     gifRestore(1)
     whenQuit($("#blue"),"Blue")
 
    } else {
     if (musicChoice === "O") {
       objPlaySong('blue', 0, 1);
+      generateControls($("#blue-music"), $("#OG-blue-music"))
       const imageURL = 'images/arcaninewallpaper.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
@@ -199,6 +202,7 @@ $(document).ready(function(){
     
     if (musicChoice === "R") {
       objPlaySong('blue', 1, 0);
+      generateControls($("#OG-blue-music"), $("#blue-music"))
       const imageURL = 'images/ArcanineHD.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
@@ -230,12 +234,13 @@ $(document).ready(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(lanceZero, lanceOne);
+    removeStyles(lanceZero, lanceOne, $("#OG-red-music"), $("lance-music"));
     gifRestore(2)
     whenQuit($("#lance"),"Lance")
    } else {
     if (musicChoice === "O") {
       objPlaySong('lance', 0, 1)
+      generateControls($("#lance-music"), $("#OG-red-music"))
       makeSprites(originalLance, dragonite);
       const imageURL = 'images/DRAGONITE.jpeg'
      $("body").css("background-image", "url(" + imageURL + ")");
@@ -247,6 +252,7 @@ $(document).ready(function(){
  
     if (musicChoice === "R") {
       objPlaySong('lance', 1, 0)
+      generateControls($("#OG-red-music"), $("#lance-music"))
       makeSprites(newLance, dragonite);
       const imageURL = 'images/DRAGONITE.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
@@ -278,12 +284,13 @@ $(document).ready(function(){
     }
 
     if (musicChoice === "Q") {
-      removeStyles(stevenZero, stevenOne)
+      removeStyles(stevenZero, stevenOne, $("#OG-steven-music"), $("#steven-music"))
       gifRestore(3)
       whenQuit($("#steven"),"Steven")
     } else {
       if (musicChoice === "O") {
         objPlaySong('steven', 0, 1);
+        generateControls($("#steven-music"), $("#OG-steven-music"))
         const imageURL = 'images/manthatmeta.jpeg';
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "auto");
@@ -295,6 +302,7 @@ $(document).ready(function(){
   
       if (musicChoice === "R") {
         objPlaySong('steven', 1, 0);
+        generateControls($("#OG-steven-music"), $("#steven-music"))
         const imageURL = 'images/METAGROSSSHINYMEGA.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
         $("body").css("background-size", "97%");
@@ -326,13 +334,14 @@ $(document).ready(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(wallaceZero, wallaceOne);
+    removeStyles(wallaceZero, wallaceOne, $("#wallace-music"), $("#OG-steven-music"));
     gifRestore(4)
     whenQuit($("#wallace"),"Wallace")
    
    } else {
     if (musicChoice === "O") {
       objPlaySong('wallace', 0, 1);
+      generateControls($("#wallace-music"), $("#OG-steven-music"))
       const imageURL = 'images/MILOTIC.jpeg'
       makeSprites(orginialWallace, milotic)
       $("body").css("background-image", "url(" + imageURL + ")");
@@ -344,8 +353,8 @@ $(document).ready(function(){
  
     if (musicChoice === "R") {
       objPlaySong('wallace', 1, 0);
+      generateControls($("#OG-steven-music"), $("#wallace-music"));
       let imageURL = 'images/MILOHD.jpeg';
-
       makeSprites(newWallace, milotic);
       $("body").css("background-image", "url(" + imageURL + ")");
       $(".music").prop("currentTime",0);
@@ -376,12 +385,13 @@ $(document).ready(function(){
   }
 
     if (musicChoice === "Q") {
-    removeStyles(cynZero, cynOne)
+    removeStyles(cynZero, cynOne, $("#OG-cynthia-music"), $("#cynthia-music"))
     gifRestore(5)
     whenQuit($("#cynthia"),"Cynthia")
     } else {
      if (musicChoice === "O") {
        objPlaySong('cynthia', 0, 1);
+       generateControls($("#cynthia-music"), $("#OG-cynthia-music"))
        let imageURL = 'images/grrrr.png'
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "130%");
@@ -393,6 +403,7 @@ $(document).ready(function(){
   
      if (musicChoice === "R") {
        objPlaySong('cynthia', 1, 0);
+       generateControls($("#OG-cynthia-music"), $("#cynthia-music"))
        let imageURL = 'images/GARCHOMP.jpeg'
        $("body").css("background-image", "url(" + imageURL + ")");
        $("body").css("background-size", "100%");
@@ -426,7 +437,7 @@ $("#alder").click(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(alderZero, alderOne, $("#alder-music"), $("alder-music-remix"));
+    removeStyles(alderZero, alderOne, $("#alder-music"), $("#alder-music-remix"));
     gifRestore(6)
     whenQuit($("#alder"),"Alder")
    } else {
