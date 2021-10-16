@@ -402,13 +402,19 @@ $(document).ready(function(){
 $("#alder").click(function(){
     const alderZero = musicObj.alder[0];
     const alderOne = musicObj.alder[1];
+    const alder = 'pokemon-sprites/ALDER_OD.png'
+    const vol = 'pokemon-sprites/637_down.png'
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
      musicChoice = prompt("O for original or R for remastered")
+   }
+
+   if (musicChoice === null) {
+     cancelOptions("Alder and Volcarona #1", "Alder and Volcarona #2", alder, vol, alder, vol)
    }
 
    if (musicChoice === "Q") {
@@ -421,6 +427,10 @@ $("#alder").click(function(){
       let imageURL = 'images/VOLCARONA.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "auto");
+      makeSprites(alder, vol)
+      $(".which-trainer").text("Alder and Volcarona #1")
+      $(".music").prop("currentTime",0); 
+      gifDisappear(6)
      }
   
      if (musicChoice === "R") {
@@ -428,28 +438,31 @@ $("#alder").click(function(){
       let imageURL = 'images/todxpr4sygj61.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "103%");
-     }
-   
-      $(".which-trainer").text("Alder and Volcarona")
-      const trainerURL = 'pokemon-sprites/ALDER_OD.png'
-      const pokemonURL = 'pokemon-sprites/637_down.png'
-      makeSprites(trainerURL, pokemonURL)
+      makeSprites(alder, vol)
+      $(".which-trainer").text("Alder and Volcarona #2")
       $(".music").prop("currentTime",0); 
       gifDisappear(6)
+     }
     }
   })
 
   $("#iris").click(function(){
     const irisZero = musicObj.iris[0];
     const irisOne = musicObj.iris[1];
-
+    const iris = 'pokemon-sprites/Iris_OD_2.png'
+    const hax =  'pokemon-sprites/612_left.png'
+    
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
     
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
       musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === null) {
+      cancelOptions("Iris and Haxorus #1", "Iris and Haxorus #2", iris, hax, iris, hax)
     }
 
     if (musicChoice === "Q") {
@@ -462,9 +475,10 @@ $("#alder").click(function(){
          let imageURL = 'images/HAXORUS.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "auto");
-         const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-         const pokemonURL = 'pokemon-sprites/612_left.png'
-         makeSprites(trainerURL, pokemonURL)
+         makeSprites(iris, hax)
+         $(".which-trainer").text("Iris and Haxorus #1")
+         $(".music").prop("currentTime",0);
+         gifDisappear(7);
        }
    
        if (musicChoice === "R") {
@@ -472,27 +486,32 @@ $("#alder").click(function(){
          let imageURL = 'images/haxorusPOWER.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "97%");
-         const trainerURL = 'pokemon-sprites/Iris_OD_2.png'
-         const pokemonURL = 'pokemon-sprites/612_left.png'
-         makeSprites(trainerURL, pokemonURL)
+         makeSprites(iris, hax)
+         $(".which-trainer").text("Iris and Haxorus #2")
+         $(".music").prop("currentTime",0);
+         gifDisappear(7);
        }
-      
-       $(".which-trainer").text("Iris and Haxorus")
-       $(".music").prop("currentTime",0);
-       gifDisappear(7);
+
      }
    })
 
   $("#n").click(function(){
     const nZero = musicObj.n[0];
     const nOne = musicObj.n[1];
+    const n = 'pokemon-sprites/N.png';
+    const resh = 'pokemon-sprites/THERESH.png';
+    const zoro = 'pokemon-sprites/571.png';
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
       musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === null) {
+      cancelOptions("N and Reshiram #1", "N and Zoroark #2", n, resh, n, zoro)
     }
 
     if (musicChoice === "Q") {
@@ -505,10 +524,10 @@ $("#alder").click(function(){
          let imageURL = 'images/Reshiram-Wallpapers-HD.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
-         const trainerURL = 'pokemon-sprites/N.png'
-         const pokemonURL = 'pokemon-sprites/THERESH.png'
-         makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("N and Reshiram");
+         makeSprites(n, resh)
+         $(".which-trainer").text("N and Reshiram #1");
+         $(".music").prop("currentTime",0);
+         gifDisappear(8);
        }
    
        if (musicChoice === "R") {
@@ -516,15 +535,11 @@ $("#alder").click(function(){
          let imageURL = 'images/me2fhc4zfbf31.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "110%");
-         const trainerURL = 'pokemon-sprites/N.png'
-         const pokemonURL = 'pokemon-sprites/571.png'
-         makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("N and Zoroark");
+         makeSprites(n, zoro)
+         $(".which-trainer").text("N and Zoroark #2");
+         $(".music").prop("currentTime",0);
+         gifDisappear(8);
        }
-      
-       
-       $(".music").prop("currentTime",0);
-       gifDisappear(8);
      }
    })
 
