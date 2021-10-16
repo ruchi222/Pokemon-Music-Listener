@@ -24,7 +24,5 @@ $(document).ready(function(){
   textChange(n, "N");
   textChange(ghet, "Ghetsis");
 
-
-  
 })
 

@@ -1,9 +1,6 @@
 $(document).ready(function(){
   const music = $(".music");
   const gif = $(".gif");
-
-  console.log(music)
-
   const musicObj = {
     red: [music[8], music[0]],
     blue: [music[10], music[3]],
@@ -16,6 +13,7 @@ $(document).ready(function(){
     n: [music[14], music[15]],
     ghetsis: [music[16], music[17]]
   }
+
   
 
   function textChange(gif, gifText) {
@@ -60,7 +58,7 @@ $(document).ready(function(){
   function removeStyles(songOne, songTwo) {
     $(".title").html("Welcome to Pokemon Music Listener");
     $(".description-list").html("<li>Listen to Pokemon Music</li><li>Taken Throughout Pokemon History</li><li>Rock Out</li>")
-    $(".which-trainer").text(`Trainer ???, Pokemon ???`);
+    $(".which-trainer").text(`Trainer ??? Pokemon ???`);
     $("body").css("background-image", "none");
     $(".sprite-container").remove();
     songOne.pause();
@@ -115,9 +113,9 @@ $(document).ready(function(){
         const trainerURL = 'pokemon-sprites/Red_FRLG_OD.webp'
         const pokemonURL = 'pokemon-sprites/025_right.png'
         makeSprites(trainerURL, pokemonURL)
-       }
-  
-      if (musicChoice === "R") {
+       } 
+       
+       if (musicChoice === "R") {
         objPlaySong('red', 1, 0);
         const imageURL = 'images/wp2403498.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
@@ -125,11 +123,10 @@ $(document).ready(function(){
         const trainerURL = 'pokemon-sprites/Red_OD.png'
         const pokemonURL = 'pokemon-sprites/025_right.png'
         makeSprites(trainerURL, pokemonURL)
-      }
-      
-      music.prop("currentTime",0);
+      } 
       $(".which-trainer").text("Red and Pikachu");
       gifDisappear(0)
+      music.prop("currentTime",0);
     }
   })
 
@@ -141,14 +138,20 @@ $(document).ready(function(){
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Old School or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
      musicChoice = prompt("O for original or R for remastered")
    }
 
-   if (musicChoice === "Q") {
+  if (musicChoice === null) {
+    console.log("nothing happened");
+    
+  }
+
+  if (musicChoice === "Q") {
     removeStyles(blueZero, blueOne);
     gifRestore(1)
     whenQuit($("#blue"),"Blue")
+
    } else {
     if (musicChoice === "O") {
       objPlaySong('blue', 0, 1);
@@ -156,10 +159,19 @@ $(document).ready(function(){
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "100%");
       const trainerURL = 'pokemon-sprites/Blue_III_OD.webp'
-     const pokemonURL = 'pokemon-sprites/059_left.png'
-     makeSprites(trainerURL, pokemonURL)
-    }
- 
+      const pokemonURL = 'pokemon-sprites/059_left.png'
+      makeSprites(trainerURL, pokemonURL)
+      music.prop("currentTime",0);
+     $(".which-trainer").text("Blue and Arcanine")
+     gifDisappear(1)
+     $("#blue").click(() => {
+      $(".sprite-container").remove();
+      const trainerURL = 'pokemon-sprites/Blue_III_OD.webp'
+      const pokemonURL = 'pokemon-sprites/059_left.png'
+      makeSprites(trainerURL, pokemonURL)
+     })
+   } 
+    
     if (musicChoice === "R") {
       objPlaySong('blue', 1, 0);
       const imageURL = 'images/ArcanineHD.jpeg'
@@ -168,13 +180,19 @@ $(document).ready(function(){
       const trainerURL = 'pokemon-sprites/Blue_OD.png'
      const pokemonURL = 'pokemon-sprites/059_left.png'
      makeSprites(trainerURL, pokemonURL)
-    }
-     
      music.prop("currentTime",0);
      $(".which-trainer").text("Blue and Arcanine")
      gifDisappear(1)
-   }
-  })
+     $("#blue").click(() => {
+      $(".sprite-container").remove();
+      const trainerURL = 'pokemon-sprites/Blue_OD.png'
+      const pokemonURL = 'pokemon-sprites/059_left.png'
+      makeSprites(trainerURL, pokemonURL)
+     })
+    }
+  }
+  
+})
 
   $("#lance").click(function(){
     const lanceZero = musicObj.lance[0];

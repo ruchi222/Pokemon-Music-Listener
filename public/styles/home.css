@@ -21,7 +21,7 @@ body {
 }
 
 .description-container {
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -32,14 +32,13 @@ body {
 .which-trainer {
   font-size: 35px;
   width: 100%;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   display: flex;
   justify-content: flex-end;
-  
 }
 
 .sprite-container {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   width: 230px;
   height: 100%;
   display: flex;
@@ -49,7 +48,7 @@ body {
 
 .trainer-font,
 .pokemon-font {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   width: 60px;
   height: 60px;
   margin: 0;
