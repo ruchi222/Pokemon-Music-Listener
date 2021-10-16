@@ -13,6 +13,12 @@ $(document).ready(function(){
     n: [music[14], music[15]],
     ghetsis: [music[16], music[17]]
   }
+
+  function generateControls(oldAudio, newAudio) {
+    oldAudio.css("display", "none");
+    newAudio.attr("controls","controls");
+    newAudio.css("display", "initial");
+  }
   
   function cancelOptions(originalKeyword, remixKeyword, oldTrainer, oldPokemon, newTrainer, newPokemon) {
     const whichTrainer = $(".which-trainer")
@@ -71,7 +77,7 @@ $(document).ready(function(){
     pokemonSprite.addClass("pokemon-font");
   }
 
-  function removeStyles(songOne, songTwo) {
+  function removeStyles(songOne, songTwo, audioIDOne, audioIDTwo) {
     $(".title").html("Welcome to Pokemon Music Listener");
     $(".description-list").html("<li>Listen to Pokemon Music</li><li>Taken Throughout Pokemon History</li><li>Rock Out</li>")
     $(".which-trainer").text(`Trainer ??? Pokemon ???`);
@@ -79,6 +85,8 @@ $(document).ready(function(){
     $(".sprite-container").remove();
     songOne.pause();
     songTwo.pause();
+    audioIDOne.css("display", "none");
+    audioIDTwo.css("display", "none");
   }
 
   function gifDisappear(index) {
@@ -466,12 +474,13 @@ $("#alder").click(function(){
     }
 
     if (musicChoice === "Q") {
-      removeStyles(irisZero, irisOne);
+      removeStyles(irisZero, irisOne, $("#iris-music"),$("#iris-music-remix"));
       gifRestore(7);
       whenQuit($("#iris"),"Iris")
      } else {
        if (musicChoice === "O") {
          objPlaySong('iris', 0, 1);
+         generateControls($("#iris-music-remix"),$("#iris-music"))
          let imageURL = 'images/HAXORUS.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "auto");
@@ -483,6 +492,7 @@ $("#alder").click(function(){
    
        if (musicChoice === "R") {
          objPlaySong('iris', 1, 0);
+         generateControls($("#iris-music"), $("#iris-music-remix"))
          let imageURL = 'images/haxorusPOWER.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "97%");
@@ -515,12 +525,13 @@ $("#alder").click(function(){
     }
 
     if (musicChoice === "Q") {
-      removeStyles(nZero, nOne);
+      removeStyles(nZero, nOne, $("#n-music"), $("#n-music-remix"));
       gifRestore(8);
       whenQuit($("#n"),"N")
      } else {
        if (musicChoice === "O") {
          objPlaySong('n', 0, 1);
+         generateControls($("#n-music"))
          let imageURL = 'images/Reshiram-Wallpapers-HD.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
@@ -532,6 +543,7 @@ $("#alder").click(function(){
    
        if (musicChoice === "R") {
          objPlaySong('n', 1, 0);
+         generateControls($("#n-music-remix"))
          let imageURL = 'images/me2fhc4zfbf31.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "110%");
