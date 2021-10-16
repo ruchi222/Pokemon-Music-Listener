@@ -568,18 +568,18 @@ $("#alder").click(function(){
          const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
          const pokemonURL = 'pokemon-sprites/635.png'
          makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Ghetsis and Hydreigon");
+         $(".which-trainer").text("Ghetsis and Hydreigon #1");
        }
    
        if (musicChoice === "R") {
          objPlaySong('ghetsis', 1, 0);
-         let imageURL = 'images/thumb-1920-641967.jpeg'
+         let imageURL = 'images/452-4523651_pokemon-kyurem-white-hd-wallpaper-download-pokemon-white.png'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "124%");
+         $("body").css("background-size", "100%");
          const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
-         const pokemonURL = 'pokemon-sprites/raw.gif'
+         const pokemonURL = 'pokemon-sprites/646.png'
          makeSprites(trainerURL, pokemonURL)
-         $(".which-trainer").text("Ghetsis and Kyurem White");
+         $(".which-trainer").text("Ghetsis and Kyurem White #2");
        }
       
        
