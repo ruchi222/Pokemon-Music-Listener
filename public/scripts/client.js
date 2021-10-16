@@ -546,13 +546,21 @@ $("#alder").click(function(){
    $("#ghetsis").click(function(){
     const ghetZero = musicObj.ghetsis[0];
     const ghetOne = musicObj.ghetsis[1];
+    const ghet = 'pokemon-sprites/Ghetsiswalkdown.png';
+    const hydreigon = 'pokemon-sprites/635.png';
+    const kyur = 'pokemon-sprites/646.png'
+
 
     $(".sprite-container").remove();
     $(".reactive-trainer-text").css("opacity","0");
 
     let musicChoice = prompt("Type which ever version you want: Original or Remastered")
-    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q") {
+    while (musicChoice !== "O" && musicChoice !== "R" && musicChoice !== "Q" && musicChoice !== null) {
       musicChoice = prompt("O for original or R for remastered")
+    }
+
+    if (musicChoice === null) {
+      cancelOptions("Ghetsis and Hydreigon #1", "Ghetsis and Kyurem White #2", ghet, hydreigon, ghet, kyur)
     }
 
     if (musicChoice === "Q") {
@@ -565,9 +573,7 @@ $("#alder").click(function(){
          let imageURL = 'images/hydreigon.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
-         const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
-         const pokemonURL = 'pokemon-sprites/635.png'
-         makeSprites(trainerURL, pokemonURL)
+         makeSprites(ghet, hydreigon)
          $(".which-trainer").text("Ghetsis and Hydreigon #1");
        }
    
@@ -576,15 +582,14 @@ $("#alder").click(function(){
          let imageURL = 'images/452-4523651_pokemon-kyurem-white-hd-wallpaper-download-pokemon-white.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "100%");
-         const trainerURL = 'pokemon-sprites/Ghetsiswalkdown.png'
-         const pokemonURL = 'pokemon-sprites/646.png'
-         makeSprites(trainerURL, pokemonURL)
+         makeSprites(ghet, kyur)
          $(".which-trainer").text("Ghetsis and Kyurem White #2");
+         $(".music").prop("currentTime",0);
+         gifDisappear(9);
        }
       
        
-       $(".music").prop("currentTime",0);
-       gifDisappear(9);
+       
      }
    })
 
