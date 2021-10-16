@@ -426,12 +426,13 @@ $("#alder").click(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(alderZero, alderOne);
+    removeStyles(alderZero, alderOne, $("#alder-music"), $("alder-music-remix"));
     gifRestore(6)
     whenQuit($("#alder"),"Alder")
    } else {
      if (musicChoice === "O") {
       objPlaySong('alder', 0, 1);
+      generateControls($("#alder-music-remix"), $("#alder-music"))
       let imageURL = 'images/VOLCARONA.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "auto");
@@ -443,6 +444,7 @@ $("#alder").click(function(){
   
      if (musicChoice === "R") {
       objPlaySong('alder', 1, 0);
+      generateControls($("#alder-music"), $("#alder-music-remix"))
       let imageURL = 'images/todxpr4sygj61.jpeg'
       $("body").css("background-image", "url(" + imageURL + ")");
       $("body").css("background-size", "103%");
@@ -531,7 +533,7 @@ $("#alder").click(function(){
      } else {
        if (musicChoice === "O") {
          objPlaySong('n', 0, 1);
-         generateControls($("#n-music"))
+         generateControls($("#n-music-remix"),$("#n-music"))
          let imageURL = 'images/Reshiram-Wallpapers-HD.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
@@ -543,7 +545,7 @@ $("#alder").click(function(){
    
        if (musicChoice === "R") {
          objPlaySong('n', 1, 0);
-         generateControls($("#n-music-remix"))
+         generateControls($("#n-music"),$("#n-music-remix"))
          let imageURL = 'images/me2fhc4zfbf31.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "110%");
@@ -576,35 +578,36 @@ $("#alder").click(function(){
     }
 
     if (musicChoice === "Q") {
-      removeStyles(ghetZero, ghetOne);
+      removeStyles(ghetZero, ghetOne, $("#ghetsis-music"), $("#ghetsis-music-remix"));
       gifRestore(9);
       whenQuit($("#ghetsis"),"Ghetsis")
      } else {
        if (musicChoice === "O") {
          objPlaySong('ghetsis', 0, 1);
+         generateControls($("#ghetsis-music-remix"),$("#ghetsis-music"))
          let imageURL = 'images/hydreigon.png'
          $("body").css("background-image", "url(" + imageURL + ")");
          $("body").css("background-size", "115%");
          makeSprites(ghet, hydreigon)
          $(".which-trainer").text("Ghetsis and Hydreigon #1");
+         $(".music").prop("currentTime",0);
+         gifDisappear(9);
+
        }
    
        if (musicChoice === "R") {
-         objPlaySong('ghetsis', 1, 0);
-         let imageURL = 'images/452-4523651_pokemon-kyurem-white-hd-wallpaper-download-pokemon-white.png'
-         $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "100%");
-         makeSprites(ghet, kyur)
-         $(".which-trainer").text("Ghetsis and Kyurem White #2");
-         $(".music").prop("currentTime",0);
-         gifDisappear(9);
-       }
-      
-       
-       
-     }
-   })
-
+        objPlaySong('ghetsis', 1, 0);
+        generateControls($("#ghetsis-music"),$("#ghetsis-music-remix"))
+        let imageURL = 'images/452-4523651_pokemon-kyurem-white-hd-wallpaper-download-pokemon-white.png'
+        $("body").css("background-image", "url(" + imageURL + ")");
+        $("body").css("background-size", "100%");
+        makeSprites(ghet, kyur)
+        $(".which-trainer").text("Ghetsis and Kyurem White #2");
+        $(".music").prop("currentTime",0);
+        gifDisappear(9);
+      }
+    }
+  })
 })
 
 
