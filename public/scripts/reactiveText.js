@@ -1,5 +1,13 @@
 $(document).ready(function(){
-  
+
+  function textChange(gif, gifText) {
+    gif.hover(function(){
+      $(".reactive-trainer-text").text(gifText)
+    })
+    $(".mini-gif-container").mouseleave(function(){
+      $(".reactive-trainer-text").text("Select A Trainer")
+    })
+  }
 
   const red = $("#red");
   const blue = $("#blue");

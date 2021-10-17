@@ -38,15 +38,6 @@ $(document).ready(function(){
     }
   }
   
-  function textChange(gif, gifText) {
-    gif.hover(function(){
-      $(".reactive-trainer-text").text(gifText)
-    })
-    $(".mini-gif-container").mouseleave(function(){
-      $(".reactive-trainer-text").text("Select A Trainer")
-    })
-  }
-
   function whenQuit(gif,gifText) {
     $(".reactive-trainer-text").css("opacity","1");
     $(".reactive-trainer-text").text(gifText);
@@ -234,7 +225,7 @@ $(document).ready(function(){
    }
 
    if (musicChoice === "Q") {
-    removeStyles(lanceZero, lanceOne, $("#OG-red-music"), $("lance-music"));
+    removeStyles(lanceZero, lanceOne, $("#OG-red-music"), $("#lance-music"));
     gifRestore(2)
     whenQuit($("#lance"),"Lance")
    } else {
@@ -305,7 +296,7 @@ $(document).ready(function(){
         generateControls($("#OG-steven-music"), $("#steven-music"))
         const imageURL = 'images/METAGROSSSHINYMEGA.jpeg'
         $("body").css("background-image", "url(" + imageURL + ")");
-        $("body").css("background-size", "97%");
+        $("body").css("background-size", "100%");
         makeSprites(newSteven, megaMetagross)
         $(".which-trainer").text("Steven and Mega Metagross #2")
         $(".music").prop("currentTime",0);
@@ -345,7 +336,7 @@ $(document).ready(function(){
       const imageURL = 'images/MILOTIC.jpeg'
       makeSprites(orginialWallace, milotic)
       $("body").css("background-image", "url(" + imageURL + ")");
-      $("body").css("background-size", "110%");
+      $("body").css("background-size", "100%");
       $(".music").prop("currentTime",0);
       $(".which-trainer").text("Wallace and Milotic #1");
       gifDisappear(4);
@@ -357,6 +348,7 @@ $(document).ready(function(){
       let imageURL = 'images/MILOHD.jpeg';
       makeSprites(newWallace, milotic);
       $("body").css("background-image", "url(" + imageURL + ")");
+      $("body").css("background-size", "100%");
       $(".music").prop("currentTime",0);
       $(".which-trainer").text("Wallace and Milotic #2");
       gifDisappear(4);
@@ -508,7 +500,7 @@ $("#alder").click(function(){
          generateControls($("#iris-music"), $("#iris-music-remix"))
          let imageURL = 'images/haxorusPOWER.jpeg'
          $("body").css("background-image", "url(" + imageURL + ")");
-         $("body").css("background-size", "97%");
+         $("body").css("background-size", "100%");
          makeSprites(iris, hax)
          $(".which-trainer").text("Iris and Haxorus #2")
          $(".music").prop("currentTime",0);
